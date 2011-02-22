@@ -1,0 +1,109 @@
+\documentclass{beamer}
+\usepackage{dcolumn}
+%\newcolumntype{.}{D{.}{.}{-1}}
+%\newcolumntype{d}[1]{D{.}{.}{#1}}
+\usetheme{Berkeley}
+
+% \newcommand{\be}{\begin{enumerate}[<+->]}
+% \newcommand{\ee}{\end{enumerate}}
+% \newcommand{\bq}{\begin{quote}}
+% \newcommand{\eq}{\end{quote}}
+% \newcommand{\bd}{\begin{description}[<+->]}
+% \newcommand{\ed}{\end{description}}
+% \newcommand{\bi}{\begin{itemize}[<+->]}
+% \newcommand{\ei}{\end{itemize}}
+
+\title[]{TITLE}
+\author{AUTHOR}
+\institute{INSTITUTION}
+\date{\today}
+
+
+
+
+
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\begin{frame}
+   \frametitle{Lecture Outline}
+   \tableofcontents[pausesections]
+\end{frame}
+
+\AtBeginSection[] % Do nothing for \section*
+{
+\begin{frame}<beamer>
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+\section{1}
+\begin{frame}
+\frametitle{ Abstract shapes for RNA structure prediction\line }
+\pause
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\pause
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Introduction}
+\pause
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Structural component}
+
+   \begin{itemize}
+   \item Role of RNA in higher organisms is broader than
+   \item considered a few years ago.
+   \end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+
+
+% \frame
+% {
+%   \frametitle{\large Structure Prediction}
+%   \small
+%   \begin{block}{Single Sequence (Free energy algorithms)}
+%     \begin{itemize}
+%       \item \alert<2->{Minimum free energy structure}
+%       \item \alert<3->{Suboptimal folding}
+%       \item \alert<3->{Stochastic sampling}
+%       \item \alert<3->{Shape abstraction}
+%       \item \alert<3->{Shape probabilities}
+%       \item \ldots
+%     \end{itemize}
+%   \end{block}
+%   \begin{block}{Comparative}
+%     \begin{itemize}
+%       \item Alignment of folded RNAs (MARNA, RNAforester, \ldots)
+%       \item Simultaneous aligning and folding (Foldalign, Dynalign, \ldots)
+%       \item \alert<2->{Folding aligned RNAs (RNAalifold)}
+%     \end{itemize}
+%   \end{block}
+%   \begin{block}{RNAlishapes}<3->
+%     \alert<3->{Structural Analysis of Aligned RNAs}
+%   \end{block}
+% }
+
+
+%\section{Outline}
+%\subsection{}
