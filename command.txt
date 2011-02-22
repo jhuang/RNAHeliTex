@@ -1,0 +1,57 @@
+push: git push -u origin master
+
+
+============================================
+ Setting your name / email
+
+View
+git config user.name
+git config user.email
+
+Change/set - current repository only
+git config user.name Fred
+git config user.email fred@gmail.com
+
+Change/set - in ALL your (local) repositories. This updates ~/.gitconfig
+git config --global user.name Fred
+git config --global user.email fred@gmail.com
+
+Alternatively edit ~/.gitconfig directly
+==================== git ===================
+~/Desktop/genometools
+git remote rm
+git remote add zbh jhuang@hannover.zbh.uni-hamburg.de:/home/stud2008/jhuang/jhgenometools
+git push zbh jhbranch
+
+  git remote add github git@github.com:jhuang/jhgenometools.git
+  git remote add github git@github.com:jhuang/jhgttestdata.git
+  git push github jhbranch
+  
+  git clone git://github.com/jhuang/jhgenometools.git
+  git clone ssh://jhuang@verbier.zbh.uni-hamburg.de/home/stud2008/dwillrodt/opendir/genometools/
+  git checkout -b dirk origin/mymaster
+  git pull origin master (X wrong)
+  git pull origin mymaster
+
+
+  SSH: git@github.com:jhuang/jhgenometools.git
+  HTTP: https://jhuang@github.com/jhuang/jhgenometools.git
+  Git Read-Only: git://github.com/jhuang/jhgenometools.git
+
+  git clone git://genometools.org/gttestdata.git
+
+--------- status must be clean ----------
+1.[jhbranch]   git checkout master
+2.[master]     git pull git://genometools.org/genometools.git
+
+[master]     git checkout jhbranch
+[jhbranch]   git rebase master            or git rebase origin/master è¿™æ ·å°±è·³è¿‡æœ¬åœ°çš„master,æ—¢æ­¥éª¤1,2
+                       - about 
+                       - continue    -> manual  
+                       - ...
+               possible problems to solve
+								 vim src/match/eis-voiditf.c  -> ä¿®æ”¹
+								 git add src/match/eis-voiditf.c
+								 git rebase --continue                      
+[jhbranch]   git push -f github jhbranch                       
+
