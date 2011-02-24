@@ -1,4 +1,5 @@
 \documentclass[ignorenonframetext,10pt]{beamer}
+%\documentclass[paper=a4,12pt,version=last,landscape]{scrartcl}
 
 %\usepackage[latin1]{inputenc}
 \usepackage[english]{babel}
@@ -9,6 +10,12 @@
 \usepackage{textcomp}
 \usepackage[footnotesize]{subfigure}
 \usepackage{graphicx}
+
+
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.3}% <-- moves axis labels near ticklabels (respects tick label widths)
+
+
 
 
 %\usetheme{Berlin}
@@ -28,6 +35,8 @@
   AG Experimentelle Bioinformatik (Cyanolab)\\
   Institut f\"ur Biologie III\\
   Universit\"at Freiburg}
+\subject{Talk based on Giegerich, Voss, Rehmsmeier (2004) ''Abstract
+Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
   
   
 
@@ -36,34 +45,32 @@
 
 \frame{\maketitle}
 
-
+% frame 2
 \begin{frame}
 \frametitle{Outline}
    \begin{itemize}
-   \item Introduction
+   \item Introducing abstract shapes  %Introduction
    \item Development of a new structure abstraction
    \item Implementation of an algorithm based on the new abstraction
-   \item Possible problems              
-   \item Evaluation of the algorithm
-   \item Designing RNA class predictors   
+   \item Possible problems                
    \end{itemize}
 \end{frame}
 
-
+% frame 3
 \section{Introduction}
 \subsection{}
 \begin{frame}
 \frametitle{Structural components of RNA}
   %\begin{block}
-   RNA has different structural components:
-   \begin{itemize}
-   \item single-stranded regions (SS)
-   \item hairpin loops (HL)
-   \item stacking regions (SR)
-   \item bulges on 5\'{}side (BL) or 3\'{}side (BR)
-   \item internal loops (IL)
-   \item multiloops (ML). 
-   \end{itemize}
+    RNA has different structural components:
+    \begin{itemize}
+    \item single-stranded regions (SS)
+    \item hairpin loops (HL)
+    \item stacking regions (SR)
+    \item bulges on 5\'{}side (BL) or 3\'{}side (BR)
+    \item internal loops (IL)
+    \item multiloops (ML). 
+    \end{itemize}
   %\end{block}
 \end{frame}
   
@@ -75,20 +82,9 @@
 \end{figure}
 \end{frame}
 
-% \frame{
-%   \frametitle{tRNAs - Proof of Correctness}
-%   \begin{block}{Alignment and Predicted Consensus}
-%     \begin{figure}
-%       %\subfigure[Rfam
-%       % Alignment]{\includegraphics[width=\textwidth]{images/tRNA_example_ungap_ali_coloured.pdf}}
-%       %\subfigure[RNAlishapes]{\includegraphics[width=.3\textwidth]{images/tRNA_example_structure_plot.pdf}}
-%       %\hspace{2cm}
-%       %\subfigure[RNAalifold]{\includegraphics[width=.3\textwidth]{images/tRNA_example_structure_plot.pdf}}
-%     \end{figure}
-%   \end{block}
-% }
 
-
+% frame 4
+% explain the RNA
 \begin{frame}
 \frametitle{Visualisation of structures}  
 \begin{figure}
@@ -97,208 +93,219 @@
 \end{figure}
 \end{frame}
 
+% frame 5
 \begin{frame}
 \frametitle{Suboptimal structures}
-%\pause
-   \begin{itemize} 
-   \item But the \'84true`` structure is not always the one with
-   \item the lowest predicted free energy.
-   \end{itemize}
+  %\begin{block}
+    But the ''true'' structure is not always the one with the lowest
+    predicted free energy.
+    So what to do?
+    \begin{itemize} 
+    \item Enumerate suboptimal structures within a given energy range R.
+    \item Hope to find a structure fulfilling your expectation or coming close
+    to experimental results.
+    \end{itemize}
+    But the number of suboptimal structures grows exponentially with the energy
+    range considered.
+  %\end{block}   
 \end{frame}
 
+% frame 6
 \begin{frame}
 \frametitle{Introducing abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item Solution: Use abstract shapes to describe a set of structures.
-   \end{itemize}
+    Solution: Use abstract shapes to describe a set of structures.
+    \begin{itemize} 
+    \item An abstract shape represents a class of similar structures sharing a
+    common pattern of helix nesting and adjacency.
+    \item ''Abstract'' since we do not care about all details of the structures.
+    \item Each shape class has a representative structure called shrep (with minimum folding energy).
+    \end{itemize}
 \end{frame}
 
+% frame 7
 \begin{frame}
 \frametitle{Introducing abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item In the domain of shapes, we care only about
-   \item open structures (OP)
-   \item closed structure (CP)
-   \item branching (``fork'', FK) and
-   \item adjacency of structures (AD).
-   \end{itemize}
+    In the domain of shapes, we care only about
+    \begin{itemize} 
+    \item open structures (OP)
+    \item closed structure (CP)
+    \item branching (''fork'', FK)
+    \item adjacency of structures (AD)
+    \end{itemize}
+    Level of detail is defined by an abstraction function $\pi$.
+    The abstraction function can be defined on the level of the structural components.
 \end{frame}
 
-\begin{frame}
-\frametitle{Defining abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item A (very abstract) abstraction function :
-   \item $\pi$(SS(l))           = OP      (single-stacked region)
-   \item $\pi$(HL(a,l,b)         = CL      (hairpin)
-   \item $\pi$(SR(a,x,b))       = $\pi$(x)                       (stacked region)
-   \item $\pi$(IL(a,l,x,l\'b4,b))  = \'f0(x)       (interior loop)
-   \item $\pi$(ML(a,c,b))       = FK($\pi$(x))                (multiloop) 
-   \item E represents the ``empty structure''.
-   \item where a, b = nucleotides, l = loop, c = list of adjacent 
-   \item components and x = arbitrary structure elements.
-   \end{itemize}
-\end{frame}
+% \begin{frame}
+% \frametitle{Defining abstract shapes}
+%    \begin{itemize} 
+%    \item A (very abstract) abstraction function :
+%    \item $\pi$(SS(l))           = OP      (single-stacked region)
+%    \item $\pi$(HL(a,l,b)         = CL      (hairpin)
+%    \item $\pi$(SR(a,x,b))       = $\pi$(x)                       (stacked region)
+%    \item $\pi$(IL(a,l,x,l\'b4,b))  = \'f0(x)       (interior loop)
+%    \item $\pi$(ML(a,c,b))       = FK($\pi$(x))                (multiloop) 
+%    \item E represents the ``empty structure''.
+%    \item where a, b = nucleotides, l = loop, c = list of adjacent 
+%    \item components and x = arbitrary structure elements.
+%    \end{itemize}
+% \end{frame}
 
 
-
-
-
-
-\section{2}
-\subsection{}
+% frame 8
 \begin{frame}
 \frametitle{Example }
-%\pause
+\begin{figure}
+  \includegraphics[scale=0.4]{images/shrep_example.pdf} 
+\end{figure}
 \end{frame}
 
+
+% frame 9
+\begin{frame}[fragile]
+  \begin{block}{\small Abstract shape, Energy range: 5 kcal/mol}
+  \begin{verbatim}
+        UCGCGCACAGGACAUCCUAGGUACAAGGCCGCCGU
+-6.30   .((.((..(((....))).(((.....))))))).  [[][]]
+-4.90   ........(((....))).(((.....))).....  [][]
+-3.90   ....((..(((....)))..)).............  []
+  \end{verbatim}
+  \end{block}
+\end{frame}
+
+% frame 10
+\section{develop a new structure abstraction}
+\subsection{}
 \begin{frame}
-\frametitle{Computing abstract shapes}
-%\pause
+\frametitle{}
+   \begin{block}{\small Drawback of abstract shape}
    \begin{itemize} 
-   \item Abstract shapes are a homomorphic image of the folding
-   \item space of a RNA sequence (same as mfe or base pair 
-   \item maximization).
-   \item They can therefore be computed using Dynamic
-   \item Programming (DP).  
-   \item Giegerich et al. use an extension of DP called
-   \item Algebraic Dynamic Programming (ADP).
-   \item ADP offers some interesting aspects (separation of
-   \item recognition and evaluation, pair algebras).
+   \item The major drawback of abstract shape analysis is the position
+   independence of the abstraction
    \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Computing abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item  \emph{Algebraic Dynamic Programming} defines the set of all possible solutions (e.g. foldings) using a context-free grammar.
-   \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{First summary  }
-%\pause
-   \begin{itemize} 
-   \item  One abstract shape represents a family of  
-   \item     similar RNA structures.
-   \item Shapes are defined by an abstraction function
-   \item    that maps from structure to shape space.
-   \item Shapes can be used to represent a large number of (suboptimal) foldings to obtain an holistic view of the folding space.
-   \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Applications of abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item Suboptimal Folding
-   \item Out of 99 tRNA sequences in Rfam only 30 had the typical cloverleaf structure as predicted mfe folding.
-   \item Example: tRNA of  \emph{Natronobacterium pharaonis:}
-   \item  \emph{    }mfe structure is a hairpin with internal loops, cloverleaf structure occurs at position 104 of 199 
-   \item     suboptimal structures.
-   \item All these suboptimal folding can be represented by three abstract shapes.
-   \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Applications of abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item Suboptimal Folding
-   \item (demo)
-   \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Applications of abstract shapes}
-%\pause
-\end{frame}
-
-\begin{frame}
-\frametitle{Suboptimal folding}
-%\pause
-\end{frame}
-
-\begin{frame}
-\frametitle{Applications of abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item Better structure prediction (than mfe folding) can
-   \item be obtained using comparative approaches:
-   \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Applications of abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item A possible resort : 
-   \end{itemize}
+   \end{block}
+   \begin{block}{\small new algorithm should be:}
+   \begin{itemize}
+     \item develop a new algorithm for RNA secondary structures which keeps
+     track of the position of structural elements
+     \item be implemented in the framework of ''Abstract shapes of RNA''
+     \item be evaluated and compared to existing algorithms
+     \item The new algorithm will be used to design prediction strategies for
+     various classes of RNAs
+   \end{itemize} 
+   \end{block}
 \end{frame}
 
 
-
-
-
-
-\section{3}
 \begin{frame}
-\frametitle{Applications of abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item Consensus structures with abstract shapes
-   \end{itemize}
+\frametitle{develop a new structure abstraction}
+    The straightforward idea to overcome the position independence of the
+    current available shape abstractions is
+    \begin{block}{what keeps track of positions}
+    \begin{itemize} 
+    \item hairpin loop, because it is the least expensive one
+    \item multiloops, as possible braching points, are structurally important    
+    \item stacked pairs, bulge and internal loops are the main structural
+    contributors 
+    \item possible different helices type
+    \end{itemize}
+    \end{block}
+    \begin{block}{which positions of the base pair will be tracked}
+    \begin{itemize} 
+    \item i
+    \item j   
+    \item (i,j)
+    \item i+j/2
+    \end{itemize}    
+    \end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Todo: capture of the pdf picture}
+\begin{figure}
+  \includegraphics[scale=0.4]{images/shrep_example.pdf} 
+\end{figure}
+\end{frame}
+
+
+% frame 11
+\begin{frame}[fragile]
+  Output from the first trial version of helices shape
+  \begin{block}{\small Helices shape, Energy range: 5 kcal/mol}
+  %\begin{alltt}
+  \begin{verbatim}
+        UCGCGCACAGGACAUCCUAGGUACAAGGCCGCCGU
+-6.30   .((.((..(((....))).(((.....))))))).  [13.5,25]  
+-4.60   ........(((....))).(((........)))..  [13.5,26.5] 
+-3.90   ....((..(((....)))..)).............  [13.5]
+-3.60   .........((....(((.......)))...))..  [22]
+-3.40   ....((..(((....)))..))....((...))..  [13.5,30]
+-3.20   ..((((.....((.......)).....)).))...  [17]
+-2.80   .........((........(((.....))).))..  [25]
+-2.40   ...................(((........)))..  [26.5]
+-1.60   ....((..(((....)))..)).....((....))  [13.5,31.5]
+  \end{verbatim} 
+  %\end{alltt}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Possible problems}
+    \begin{itemize} 
+    \item do not preserve nesting of elements and meight lead to abstract shapes
+    where a helix index occurs more than once $\rightarrow$ solved with
+    different representation form
+    \item abstracting from bulge and internal loops might be to rigorous
+    $\rightarrow$ refine the definition of the abstraction, such that all critical criteria
+    are met
+    \item records of helices is a lot more than the records of shapes
+    $\rightarrow$ runtime problem  %translation of ..的多
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Applications of abstract shapes}
-%\pause
-   \begin{itemize} 
-   \item Possible scoring functions:
-   \end{itemize}
+\frametitle{Growth of structure, helices and shape space}
+    \centering
+% 	\begin{tikzpicture}
+% 		\begin{axis}[ymin=0]
+% 			\addplot table {data1.dat};
+% 		\end{axis}
+% 	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[width=0.9\textwidth,height=0.9\textheight,
+			title={Niederschlag in den letzten 60 Jahren},
+			xtick={1946,1950,1955,1960,1965,1970,1975,1980,1985,1990,1995,2000,2005},
+			x tick label style={/pgf/number format/1000 sep=},
+			xlabel={Jahr},
+			y tick label style={/pgf/number format/1000 sep=},
+			extra y ticks={456.1, 1022.4},
+			extra y tick labels={{456,1},{1022,4}},
+			extra y tick style={grid=major,
+				tick label style={xshift=-1cm}},
+			ylabel={mm},
+			enlarge x limits=0.01]
+			
+			\addplot table[x=Jahr, y=Summe] {data2.dat};
+		\end{axis}
+	\end{tikzpicture}
 \end{frame}
 
 \begin{frame}
-\frametitle{Going comparative pays off}
-%\pause
-\end{frame}
-
-\begin{frame}
-\frametitle{Comparison with Sankoff}
-%\pause
-\end{frame}
-
-\begin{frame}
-\frametitle{Summary }
-%\pause
-   \begin{itemize} 
-   \item Abstract shapes represent disjoint classes of RNA foldings.
-   \item Shapes are computed using (Algebraic) Dynamic Programming.
-   \item Inspecting the abstract shape space of a sequence
-   \item    can give a quick overview of the folding space.
-   \item Consensus folding with abstract shapes performs well.
-   \item Choice of best abstraction function and energy range 
-   \item     is important but difficult.
-   \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Conclusions and Outlook}
-%\pause
-   \begin{itemize} 
-   \item Other approaches to suboptimal folding exist such as statistical sampling of the folding space.
-   \item Text representations of shapes could be used as index in structure databases to classify non-coding RNA.
-   \item Extensions to the shape formalisms are under work
-   \item   ( e.g. computation of shape probabilities, de novo prediction of non-coding RNA genes )
-   \end{itemize}
+\frametitle{Outlook: Designing RNA class predictors}
+    \begin{itemize} 
+    \item specific classes of RNAs, such as riboswitches or miRNA precursors,
+    show characteristic features within their folding space
+    \item the energy landscape of riboswitches harbors two equally low, but well
+    separated minima, but well separated minima
+    \item miRNA precursors is governed by one deep and well-defined minimum
+    \item develop specialized prediction algorithms for classes of RNAs
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{End}
-%\pause
    \begin{itemize} 
    \item Thanks a lot for your attention !
    \item Questions ?

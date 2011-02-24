@@ -107,3 +107,176 @@
 
 %\section{Outline}
 %\subsection{}
+
+
+
+
+% \frame{
+%   \frametitle{tRNAs - Proof of Correctness}
+%   \begin{block}{Alignment and Predicted Consensus}
+%     \begin{figure}
+%       %\subfigure[Rfam
+%       % Alignment]{\includegraphics[width=\textwidth]{images/tRNA_example_ungap_ali_coloured.pdf}}
+%       %\subfigure[RNAlishapes]{\includegraphics[width=.3\textwidth]{images/tRNA_example_structure_plot.pdf}}
+%       %\hspace{2cm}
+%       %\subfigure[RNAalifold]{\includegraphics[width=.3\textwidth]{images/tRNA_example_structure_plot.pdf}}
+%     \end{figure}
+%   \end{block}
+% }
+
+
+
+
+========================================================================
+\section{Development of a new structure abstraction}
+\subsection{}
+\begin{frame}
+\frametitle{Computing abstract shapes}
+%\pause
+   \begin{itemize} 
+   \item Abstract shapes are a homomorphic image of the folding
+   \item space of a RNA sequence (same as mfe or base pair 
+   \item maximization).
+   \item They can therefore be computed using Dynamic
+   \item Programming (DP).  
+   \item Giegerich et al. use an extension of DP called
+   \item Algebraic Dynamic Programming (ADP).
+   \item ADP offers some interesting aspects (separation of
+   \item recognition and evaluation, pair algebras).
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Computing abstract shapes}
+%\pause
+   \begin{itemize} 
+   \item  \emph{Algebraic Dynamic Programming} defines the set of all possible solutions (e.g. foldings) using a context-free grammar.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{First summary  }
+%\pause
+   \begin{itemize} 
+   \item  One abstract shape represents a family of  
+   \item     similar RNA structures.
+   \item Shapes are defined by an abstraction function
+   \item    that maps from structure to shape space.
+   \item Shapes can be used to represent a large number of (suboptimal) foldings to obtain an holistic view of the folding space.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Applications of abstract shapes}
+%\pause
+   \begin{itemize} 
+   \item Suboptimal Folding
+   \item Out of 99 tRNA sequences in Rfam only 30 had the typical cloverleaf structure as predicted mfe folding.
+   \item Example: tRNA of  \emph{Natronobacterium pharaonis:}
+   \item  \emph{    }mfe structure is a hairpin with internal loops, cloverleaf structure occurs at position 104 of 199 
+   \item     suboptimal structures.
+   \item All these suboptimal folding can be represented by three abstract shapes.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Applications of abstract shapes}
+%\pause
+   \begin{itemize} 
+   \item Suboptimal Folding
+   \item (demo)
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Applications of abstract shapes}
+%\pause
+\end{frame}
+
+\begin{frame}
+\frametitle{Suboptimal folding}
+%\pause
+\end{frame}
+
+\begin{frame}
+\frametitle{Applications of abstract shapes}
+%\pause
+   \begin{itemize} 
+   \item Better structure prediction (than mfe folding) can
+   \item be obtained using comparative approaches:
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Applications of abstract shapes}
+%\pause
+   \begin{itemize} 
+   \item A possible resort : 
+   \end{itemize}
+\end{frame}
+
+
+
+
+
+
+\section{3}
+\begin{frame}
+\frametitle{Applications of abstract shapes}
+%\pause
+   \begin{itemize} 
+   \item Consensus structures with abstract shapes
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Applications of abstract shapes}
+%\pause
+   \begin{itemize} 
+   \item Possible scoring functions:
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Going comparative pays off}
+%\pause
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparison with Sankoff}
+%\pause
+\end{frame}
+
+
+======================================================================
+   \item Evaluation of the algorithm
+   \item Designing RNA class predictors 
+======================================================================
+   \item Abstract shapes represent disjoint classes of RNA foldings.
+   \item Shapes are computed using (Algebraic) Dynamic Programming.
+   \item Inspecting the abstract shape space of a sequence
+   \item    can give a quick overview of the folding space.
+   \item Consensus folding with abstract shapes performs well.
+   \item Choice of best abstraction function and energy range 
+   \item     is important but difficult.
+
+======================================================================
+   \item Other approaches to suboptimal folding exist such as statistical sampling of the folding space.
+   \item Text representations of shapes could be used as index in structure databases to classify non-coding RNA.
+   \item Extensions to the shape formalisms are under work
+   \item   ( e.g. computation of shape probabilities, de novo prediction of non-coding RNA genes )
+   
+======================================================================   
+\begin{frame}
+\frametitle{Summary }
+    \begin{itemize} 
+    \item point 1
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusions and Outlook}
+    \begin{itemize} 
+    \item point 1 
+    \end{itemize}
+\end{frame}
