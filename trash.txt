@@ -280,3 +280,39 @@
     \item point 1 
     \end{itemize}
 \end{frame}
+
+
+
+
+
+
+
+         %plot[mark=x]      
+         \addplot+[only marks,mark=x]
+         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
+         \addlegendentry{Shapes}         
+                  
+         %\addplot plot[mark=x] table[header=false]
+         %{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
+         
+         %\addplot plot[mark=x]
+         %file{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
+         
+         %table[x index=0,y index=1]
+         %table[x=X,y={create col/linear regression={y=Y}}]
+         \addplot table[x=X,y={create col/linear
+         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
+         %\addlegendentry{slope
+         %$\pgfmathprintnumber{\pgfplotstableregressiona}$} 
+         \addlegendentry{%
+$\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
+0:33  x 􀀀 3:24
+
+0:12  x + 0:36
+
+0:1  x 􀀀 1:59
+
+
+0.00:1  x ?009
+ 
