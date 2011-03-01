@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Mon Feb 21 11:02:41 CET 2011
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=HelicesRNAs.tex
+outputFile=HelicesRNAs.pdf
+langSpell=en
+markDer=true
+srcDir=
