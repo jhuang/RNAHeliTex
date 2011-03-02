@@ -291,9 +291,8 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
          \addlegendentry{Helices}         
          \addplot table[x=X,y={create col/linear
          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
-         \addlegendentry{$0.12 \cdot x +0.36$}
-         
-  
+         \addlegendentry{$0.11 \cdot x +0.65$}
+ 
          \addplot+[only marks,mark=x]
          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
          \addlegendentry{Shapes}                   
@@ -310,6 +309,43 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 
 	\end{tikzpicture}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{Growth of helix space  }
+    \centering
+	\begin{tikzpicture}
+		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
+		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
+		%\end{semilogyaxis}
+		\begin{semilogyaxis}[legend style={font=\small},xlabel={Sequence
+         length},ylabel={Nr. of Helices},width=\textwidth,legend
+         style={nodes=right}, legend pos= north west]
+     
+          \addplot+[only marks,mark=x]
+          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
+          \addlegendentry{energy range 5kcal/mol}
+          \addplot table[x=X,y={create col/linear
+          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};            
+         \addlegendentry{$0.11 \cdot x +0.65$} 
+ 
+         \addplot+[only marks,mark=-]
+         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+         \addlegendentry{completely}         
+         \addplot table[x=X,y={create col/linear
+         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+          \addlegendentry{
+ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+ \pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
+         
+               
+        
+        %\addlegendentry{Legenden Eintrag};
+        \end{semilogyaxis} 
+
+	\end{tikzpicture}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Outlook: Designing RNA class predictors}

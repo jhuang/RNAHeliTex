@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.2.24)  1 MAR 2011 17:13
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.2.24)  2 MAR 2011 17:10
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -1067,7 +1067,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 ] [3
 
 ]
-<images/structural_components.pdf, id=206, 722.7pt x 542.025pt>
+<images/structural_components.pdf, id=211, 722.7pt x 542.025pt>
 File: images/structural_components.pdf Graphic file (type pdf)
 
 <use images/structural_components.pdf>
@@ -1077,7 +1077,7 @@ Overfull \vbox (26.04932pt too high) detected at line 83
 [4
 
  <./images/structural_components.pdf>]
-<images/visualisation_structures.pdf, id=254, 722.7pt x 542.025pt>
+<images/visualisation_structures.pdf, id=260, 722.7pt x 542.025pt>
 File: images/visualisation_structures.pdf Graphic file (type pdf)
 
 <use images/visualisation_structures.pdf> [5
@@ -1098,7 +1098,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [8
 
 ]
-<images/shrep_example.pdf, id=440, 722.7pt x 542.025pt>
+<images/shrep_example.pdf, id=450, 722.7pt x 542.025pt>
 File: images/shrep_example.pdf Graphic file (type pdf)
 
 <use images/shrep_example.pdf> [9
@@ -1139,14 +1139,29 @@ RNAshapes_5.txt}
 PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAshapes_5.txt}
 
-Overfull \vbox (20.90935pt too high) detected at line 312
+Overfull \vbox (20.90935pt too high) detected at line 311
  []
 
 [16
 
-] [17
+]
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_5kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_5kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix.txt}
+
+Overfull \vbox (20.90944pt too high) detected at line 347
+ []
+
+[17
 
 ] [18
+
+] [19
 
 ]
 \tf@nav=\write8
@@ -1165,10 +1180,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 21776 strings out of 493848
- 467384 string characters out of 3155814
- 945210 words of memory out of 3500000
- 24457 multiletter control sequences out of 15000+200000
+ 21795 strings out of 493848
+ 467799 string characters out of 3155814
+ 992756 words of memory out of 3500000
+ 24472 multiletter control sequences out of 15000+200000
  12769 words of font info for 48 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  55i,19n,95p,673b,1726s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1182,9 +1197,9 @@ i9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
 texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/pu
 blic/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmt
 t10.pfb>
-Output written on HelicesRNAs.pdf (18 pages, 375388 bytes).
+Output written on HelicesRNAs.pdf (19 pages, 394819 bytes).
 PDF statistics:
- 938 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
+ 1003 PDF objects out of 1200 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
  138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
