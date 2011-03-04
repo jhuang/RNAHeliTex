@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.2.24)  2 MAR 2011 17:10
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.2.24)  3 MAR 2011 14:43
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -1146,15 +1146,27 @@ Overfull \vbox (20.90935pt too high) detected at line 311
 
 ]
 PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_5kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_5kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix.txt}
 PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_20kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_20kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_15kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_15kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_10kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_10kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_5kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_5kcal.txt}
 
-Overfull \vbox (20.90944pt too high) detected at line 347
+Overfull \vbox (20.90935pt too high) detected at line 371
  []
 
 [17
@@ -1180,26 +1192,28 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 21795 strings out of 493848
- 467799 string characters out of 3155814
- 992756 words of memory out of 3500000
- 24472 multiletter control sequences out of 15000+200000
+ 21812 strings out of 493848
+ 468430 string characters out of 3155814
+ 1216756 words of memory out of 3500000
+ 24483 multiletter control sequences out of 15000+200000
  12769 words of font info for 48 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  55i,19n,95p,673b,1726s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf
-/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/public/
-amsfonts/cm/cmss10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmss12.
-pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texm
-f/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf/fonts/type1/public
-/amsfonts/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmss
-i9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
-texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/pu
-blic/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmt
-t10.pfb>
-Output written on HelicesRNAs.pdf (19 pages, 394819 bytes).
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/public/
+amsfonts/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmss10.p
+fb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texm
+f/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf/fonts/type1/public
+/amsfonts/cm/cmss9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssbx1
+0.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/t
+exmf/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cm
+sy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/
+texmf/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/pu
+blic/amsfonts/cm/cmtt10.pfb>
+Output written on HelicesRNAs.pdf (19 pages, 431158 bytes).
 PDF statistics:
- 1003 PDF objects out of 1200 (max. 8388607)
+ 1015 PDF objects out of 1200 (max. 8388607)
  43 named destinations out of 1000 (max. 500000)
  138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
