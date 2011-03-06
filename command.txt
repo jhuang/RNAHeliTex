@@ -1,6 +1,9 @@
 push: git push -u origin master
 
 
+git remote set-url origin git@github.com:jhuang/RNAHeliTex.git 
+
+
 
 
 jiabin@linux-c20v:~/workspace/RNAHeliTex> vim command.txt
