@@ -1,6 +1,57 @@
 push: git push -u origin master
 
 
+
+
+jiabin@linux-c20v:~/workspace/RNAHeliTex> vim command.txt
+jiabin@linux-c20v:~/workspace/RNAHeliTex> git push -u origin master
+fatal: remote error: 
+  You can't push to git://github.com/jhuang/RNAHeliTex.git
+  Use git@github.com:jhuang/RNAHeliTex.git
+jiabin@linux-c20v:~/workspace/RNAHeliTex> git config --list
+user.name=Jiabin Huang
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+remote.origin.url=git://github.com/jhuang/RNAHeliTex.git
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+jiabin@linux-c20v:~/workspace/RNAHeliTex> vim command.txt
+jiabin@linux-c20v:~/workspace/RNAHeliTex> git branch
+* master
+jiabin@linux-c20v:~/workspace/RNAHeliTex> git push -u origin master
+fatal: remote error: 
+  You can't push to git://github.com/jhuang/RNAHeliTex.git
+  Use git@github.com:jhuang/RNAHeliTex.git
+jiabin@linux-c20v:~/workspace/RNAHeliTex> git push -u git@github.com:jhuang/RNAHeliTex.git master
+Enter passphrase for key '/home/jiabin/.ssh/id_rsa': 
+Counting objects: 16, done.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 265.22 KiB, done.
+Total 12 (delta 5), reused 0 (delta 0)
+To git@github.com:jhuang/RNAHeliTex.git
+   7d65489..1a76900  master -> master
+Branch master set up to track remote branch master from git@github.com:jhuang/RNAHeliTex.git.
+jiabin@linux-c20v:~/workspace/RNAHeliTex> git status
+# On branch master
+nothing to commit (working directory clean)
+jiabin@linux-c20v:~/workspace/RNAHeliTex> git global --list
+git: 'global' is not a git command. See 'git --help'.
+jiabin@linux-c20v:~/workspace/RNAHeliTex> git config --list
+user.name=Jiabin Huang
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+remote.origin.url=git://github.com/jhuang/RNAHeliTex.git
+branch.master.remote=git@github.com:jhuang/RNAHeliTex.git
+branch.master.merge=refs/heads/master
+jiabin@linux-c20v:~/workspace/RNAHeliTex> vim command
+jiabin@linux-c20v:~/workspace/RNAHeliTex> vim command.txt
+
 ============================================
  Setting your name / email
 
