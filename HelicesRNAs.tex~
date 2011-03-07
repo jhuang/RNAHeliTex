@@ -275,110 +275,110 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Growth of structure, helix and shape space}
-    \centering
-	\begin{tikzpicture}
-		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
-		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
-		%\end{semilogyaxis}
-		\begin{semilogyaxis}[legend style={font=\small},xlabel={Sequence
-         length},ylabel={Nr. of
-         Structures/Helices/Shapes},width=\textwidth,legend style={nodes=right},
-         legend pos= north west]
-     
-        
-         \addplot+[only marks,mark=+]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
-         \addlegendentry{Structures}         
-         \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
-         \addlegendentry{$0.33 \cdot x -3.24$}
-         
-         
-         \addplot+[only marks,mark=-]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
-         \addlegendentry{Helices}         
-         \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
-         \addlegendentry{$0.18 \cdot x -1.42$} 
- 
-         \addplot+[only marks,mark=x]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
-         \addlegendentry{Shapes}                   
-         \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};                 
-         \addlegendentry{
-$\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
-\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
-         
-               
-        
-        %\addlegendentry{Legenden Eintrag};
-        \end{semilogyaxis} 
-
-	\end{tikzpicture}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Growth of helix space  }
-    \centering
-	\begin{tikzpicture}
-		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
-		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
-		%\end{semilogyaxis}
-		\begin{semilogyaxis}[legend style={font=\tiny},xlabel={Sequence
-         length},ylabel={Nr. of Helices},width=\textwidth,legend
-         style={nodes=right}, legend pos= north west]
-
-         \addplot+[only marks,mark=-]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
-         \addlegendentry{energy range unlimited}
-         \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
-         \addlegendentry{$0.18 \cdot x -1.42$} 
-
-          \addplot+[only marks,mark=x]
-          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_20kcal.txt};
-          \addlegendentry{energy range 20kcal/mol}
-          \addplot table[x=X,y={create col/linear
-          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_20kcal.txt}; 
-          \addlegendentry{$0.12 \cdot x +0.44$} 
-       
-          \addplot+[only marks,mark=x]
-          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_15kcal.txt};
-          \addlegendentry{energy range 15kcal/mol}
-          \addplot table[x=X,y={create col/linear
-          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_15kcal.txt};
-          \addlegendentry{$0.0904 \cdot x +1.23$} 
-
-          \addplot+[only marks,mark=x]
-          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_10kcal.txt};
-          \addlegendentry{energy range 10kcal/mol}
-          \addplot table[x=X,y={create col/linear
-          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_10kcal.txt};
-          \addlegendentry{$0.0602 \cdot x +1.43$}      
-                                        
-          \addplot+[only marks,mark=x]
-          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
-          \addlegendentry{energy range 5kcal/mol}
-          \addplot table[x=X,y={create col/linear
-          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
-          \addlegendentry{$0.0366 \cdot x +0.7$} 
-     
-                            
-%           \addlegendentry{
-%  $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
-%  \pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
-         
-               
-        
-        %\addlegendentry{Legenden Eintrag};
-        \end{semilogyaxis} 
-
-	\end{tikzpicture}
-\end{frame}
+% \begin{frame}
+% \frametitle{Growth of structure, helix and shape space}
+%     \centering
+% 	\begin{tikzpicture}
+% 		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
+% 		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
+% 		%\end{semilogyaxis}
+% 		\begin{semilogyaxis}[legend style={font=\small},xlabel={Sequence
+%          length},ylabel={Nr. of
+%          Structures/Helices/Shapes},width=\textwidth,legend style={nodes=right},
+%          legend pos= north west]
+%      
+%         
+%          \addplot+[only marks,mark=+]
+%          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
+%          \addlegendentry{Structures}         
+%          \addplot table[x=X,y={create col/linear
+%          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
+%          \addlegendentry{$0.33 \cdot x -3.24$}
+%          
+%          
+%          \addplot+[only marks,mark=-]
+%          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+%          \addlegendentry{Helices}         
+%          \addplot table[x=X,y={create col/linear
+%          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+%          \addlegendentry{$0.18 \cdot x -1.42$} 
+%  
+%          \addplot+[only marks,mark=x]
+%          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
+%          \addlegendentry{Shapes}                   
+%          \addplot table[x=X,y={create col/linear
+%          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};                 
+%          \addlegendentry{
+% $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+% \pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
+%          
+%                
+%         
+%         %\addlegendentry{Legenden Eintrag};
+%         \end{semilogyaxis} 
+% 
+% 	\end{tikzpicture}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Growth of helix space  }
+%     \centering
+% 	\begin{tikzpicture}
+% 		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
+% 		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
+% 		%\end{semilogyaxis}
+% 		\begin{semilogyaxis}[legend style={font=\tiny},xlabel={Sequence
+%          length},ylabel={Nr. of Helices},width=\textwidth,legend
+%          style={nodes=right}, legend pos= north west]
+% 
+%          \addplot+[only marks,mark=-]
+%          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+%          \addlegendentry{energy range unlimited}
+%          \addplot table[x=X,y={create col/linear
+%          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+%          \addlegendentry{$0.18 \cdot x -1.42$} 
+% 
+%           \addplot+[only marks,mark=x]
+%           table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_20kcal.txt};
+%           \addlegendentry{energy range 20kcal/mol}
+%           \addplot table[x=X,y={create col/linear
+%           regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_20kcal.txt}; 
+%           \addlegendentry{$0.12 \cdot x +0.44$} 
+%        
+%           \addplot+[only marks,mark=x]
+%           table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_15kcal.txt};
+%           \addlegendentry{energy range 15kcal/mol}
+%           \addplot table[x=X,y={create col/linear
+%           regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_15kcal.txt};
+%           \addlegendentry{$0.0904 \cdot x +1.23$} 
+% 
+%           \addplot+[only marks,mark=x]
+%           table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_10kcal.txt};
+%           \addlegendentry{energy range 10kcal/mol}
+%           \addplot table[x=X,y={create col/linear
+%           regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_10kcal.txt};
+%           \addlegendentry{$0.0602 \cdot x +1.43$}      
+%                                         
+%           \addplot+[only marks,mark=x]
+%           table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
+%           \addlegendentry{energy range 5kcal/mol}
+%           \addplot table[x=X,y={create col/linear
+%           regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
+%           \addlegendentry{$0.0366 \cdot x +0.7$} 
+%      
+%                             
+% %           \addlegendentry{
+% %  $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+% %  \pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
+%          
+%                
+%         
+%         %\addlegendentry{Legenden Eintrag};
+%         \end{semilogyaxis} 
+% 
+% 	\end{tikzpicture}
+% \end{frame}
 
 
 \begin{frame}
