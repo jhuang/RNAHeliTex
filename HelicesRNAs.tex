@@ -49,10 +49,10 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \begin{frame}
 \frametitle{Outline}
    \begin{itemize}
-   \item Introducing abstract shapes  %Introduction
-   \item Development of a new structure abstraction
-   \item Implementation of an algorithm based on the new abstraction
-   \item Possible problems                
+   \item RNA secondary structure and algorithms  
+   \item Introducing abstract shapes  
+   \item Development of a new structure abstraction 
+   \item Outlook            
    \end{itemize}
 \end{frame}
 
@@ -66,7 +66,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     \begin{itemize}
     \item single-stranded regions (SS)
     \item hairpin loops (HL)
-    \item stacking regions (SR)
+    \item stacking regions (SR) = Stem
     \item bulges on 5\'{}side (BL) or 3\'{}side (BR)
     \item internal loops (IL)
     \item multiloops (ML). 
@@ -83,25 +83,47 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.8\textwidth]{./figures/mum.jpg}
-%   \end{center}
-%   \caption{Maximal Unique Matches}
-%   \label{fig:03}  
-% \end{figure}
-% Figure \ref{fig:03} shows a simple example of Maximal Unique Matches
+
+\section{RNA folding by free energy minimization}
+\subsection{}
+\begin{frame}
+\frametitle{2 principles}
+  \begin{block}{Simplifying Assumptions for Structure Prediction}
+    \begin{itemize}
+    \item RNA folds into one minimum free-energy structure.
+    \item There are no knots (base pairs never cross).
+    \item The energy of a particular base pair in a double stranded regions is
+    sequence independent
+    \end{itemize} 
+  \end{block}
+  \begin{block}{RNA has different structural components}
+    \begin{itemize}
+    \item single-stranded regions (first described by Zuker and Stiegler in
+    1981)
+    \item RNA folding are stabilized by the stacking or by dangling end
+    \item destabilized by hairpin, internal and bulge loops
+    \item the runtime is $O(n^3)$
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Free energy computation example}  
+\begin{figure}
+  \includegraphics[scale=0.4]{images/nearest_neighbour_energy.jpg} 
+\end{figure}
+\end{frame}
 
 
 % frame 4
-% explain the RNA
 \begin{frame}
-\frametitle{Visualisation of structures}  
+\frametitle{Free energy computation example}  
 \begin{figure}
-  \includegraphics[scale=0.4]{images/visualisation_structures.pdf} 
-  %\caption{Structural components}
+  \includegraphics[scale=0.4]{images/mfe_example.pdf} 
 \end{figure}
 \end{frame}
+
 
 % frame 5
 \begin{frame}
@@ -120,11 +142,20 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
   %\end{block}   
 \end{frame}
 
+% frame landscape
+\begin{frame}
+\frametitle{energy landscape}  
+\begin{figure}
+  \includegraphics[scale=0.4]{images/energy_landscape_simple.jpg} 
+\end{figure}
+\end{frame}
+
 % frame 6
 \begin{frame}
 \frametitle{Introducing abstract shapes}
     Solution: Use abstract shapes to describe a set of structures.
     \begin{itemize} 
+    \item developed by Giegerich and Voss
     \item An abstract shape represents a class of similar structures sharing a
     common pattern of helix nesting and adjacency.
     \item ''Abstract'' since we do not care about all details of the structures.
@@ -183,6 +214,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
   \end{block}
 \end{frame}
 
+
 % frame 10
 \section{develop a new structure abstraction}
 \subsection{}
@@ -194,17 +226,18 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
    independence of the abstraction
    \end{itemize}
    \end{block}
-   \begin{block}{\small new algorithm should be:}
-   \begin{itemize}
-     \item develop a new algorithm for RNA secondary structures which keeps
-     track of the position of structural elements
-     \item be implemented in the framework of ''Abstract shapes of RNA''
-     \item be evaluated and compared to existing algorithms
-     \item The new algorithm will be used to design prediction strategies for
-     various classes of RNAs
-   \end{itemize} 
+   \begin{block}{\small Drawback of abstract shape}
+   \begin{figure}
+     \includegraphics[scale=0.55]{images/drawback_1.jpg} 
+   \end{figure}
+   \end{block}
+   \begin{block}{\small Drawback of abstract shape}
+   \begin{figure}
+     \includegraphics[scale=0.55]{images/drawback_2.jpg} 
+   \end{figure}
    \end{block}
 \end{frame}
+
 
 
 \begin{frame}
@@ -213,11 +246,9 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     current available shape abstractions is
     \begin{block}{what keeps track of positions}
     \begin{itemize} 
-    \item hairpin loop, because it is the least expensive one
-    \item multiloops, as possible braching points, are structurally important    
-    \item stacked pairs, bulge and internal loops are the main structural
-    contributors 
-    \item possible different helices type
+    \item helical regions of hairpin loop
+    \item helical regions of multiloops %, as possible braching points, are structurally important    
+    \item helical regions of stacked pairs, bulge and internal loops %are the main structural contributors 
     \end{itemize}
     \end{block}
     \begin{block}{which positions of the base pair will be tracked}
@@ -230,14 +261,13 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     \end{block}
 \end{frame}
 
-
+% frame landscape
 \begin{frame}
-\frametitle{Todo: capture of the pdf picture}
+\frametitle{energy landscape}  
 \begin{figure}
-  \includegraphics[scale=0.4]{images/shrep_example.pdf} 
+  \includegraphics[scale=0.4]{images/helices_position.jpg} 
 \end{figure}
 \end{frame}
-
 
 % frame 11
 \begin{frame}[fragile]
@@ -258,6 +288,15 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
   \end{verbatim} 
   %\end{alltt}
   \end{block}
+\end{frame}
+
+
+% frame landscape
+\begin{frame}
+\frametitle{energy landscape}  
+\begin{figure}
+  \includegraphics[scale=0.4]{images/energy_landscape.jpg} 
+\end{figure}
 \end{frame}
 
 

@@ -316,3 +316,42 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 
 0.00:1  x ?009
  
+
+ 
+ 
+\section{Algortihms methods}
+\subsection{}
+\begin{frame}
+\frametitle{Structural components of RNA}
+  %\begin{block}
+    RNA has different structural components:
+    \begin{itemize}
+    \item single-stranded regions (SS)
+    \item hairpin loops (HL)
+    \item stacking regions (SR)
+    \item bulges on 5\'{}side (BL) or 3\'{}side (BR)
+    \item internal loops (IL)
+    \item multiloops (ML). 
+    \end{itemize}
+  %\end{block}
+\end{frame}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.8\textwidth]{./figures/mum.jpg}
+%   \end{center}
+%   \caption{Maximal Unique Matches}
+%   \label{fig:03}  
+% \end{figure}
+% Figure \ref{fig:03} shows a simple example of Maximal Unique Matches
+
+
+
+% frame 4
+% explain the RNA
+\begin{frame}
+\frametitle{Visualisation of structures}  
+\begin{figure}
+  \includegraphics[scale=0.4]{images/visualisation_structures.pdf} 
+  %\caption{Structural components}
+\end{figure}
+\end{frame}
