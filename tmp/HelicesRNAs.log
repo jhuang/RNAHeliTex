@@ -1,6 +1,5 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.3.3)  7 MAR 2011 16:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.3.3)  8 MAR 2011 18:55
 entering extended mode
- Source specials enabled.
  %&-line parsing enabled.
 **HelicesRNAs.tex
 (./HelicesRNAs.tex
@@ -1064,83 +1063,99 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 
 ] [2
 
-] [3
-
 ]
-<images/RNA_components.jpg, id=233, 821.0675pt x 543.02875pt>
+<images/RNA_components.jpg, id=153, 821.0675pt x 543.02875pt>
 File: images/RNA_components.jpg Graphic file (type jpg)
 
 <use images/RNA_components.jpg>
-Overfull \hbox (349.56503pt too wide) in paragraph at lines 83--83
- [][] 
+Overfull \hbox (21.13132pt too wide) in paragraph at lines 67--67
+ [] 
  []
 
 
-Overfull \vbox (255.66673pt too high) detected at line 83
+Overfull \vbox (38.4508pt too high) detected at line 67
  []
 
-[4
+[3
 
  <./images/RNA_components.jpg>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 108.
+LaTeX Font Info:    Try loading font information for U+msa on input line 92.
  (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 108.
+LaTeX Font Info:    Try loading font information for U+msb on input line 92.
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) [5
+) [4
 
 ]
-<images/nearest_neighbour_energy.jpg, id=333, 830.10126pt x 497.86pt>
-File: images/nearest_neighbour_energy.jpg Graphic file (type jpg)
+<images/mfe_example.pdf, id=249, 722.7pt x 542.025pt>
+File: images/mfe_example.pdf Graphic file (type pdf)
 
-<use images/nearest_neighbour_energy.jpg>
-Overfull \hbox (24.74475pt too wide) in paragraph at lines 116--116
- [][] 
+<use images/mfe_example.pdf> [5
+
+ <./images/mfe_example.pdf>]
+<images/energy_landscape_simple.jpg, id=300, 811.03pt x 398.48875pt>
+File: images/energy_landscape_simple.jpg Graphic file (type jpg)
+
+<use images/energy_landscape_simple.jpg>
+Overfull \hbox (17.11638pt too wide) in paragraph at lines 110--110
+ [] 
  []
 
 [6
 
- <./images/nearest_neighbour_energy.jpg>]
-<images/mfe_example.pdf, id=380, 722.7pt x 542.025pt>
-File: images/mfe_example.pdf Graphic file (type pdf)
-
-<use images/mfe_example.pdf> [7
-
- <./images/mfe_example.pdf>] [8
-
-] [9
-
-] [10
+ <./images/energy_landscape_simple.jpg>] [7
 
 ]
-<images/shrep_example.pdf, id=574, 722.7pt x 542.025pt>
-File: images/shrep_example.pdf Graphic file (type pdf)
+<images/Yeast.png, id=388, 475.17525pt x 428.19975pt>
+File: images/Yeast.png Graphic file (type png)
+ <use images/Yeast.png>
+[8
 
-<use images/shrep_example.pdf> [11
+ <./images/Yeast.png>] [9
 
- <./images/shrep_example.pdf>]
+]
+<images/shapes_example.jpg, id=477, 550.30594pt x 297.36093pt>
+File: images/shapes_example.jpg Graphic file (type jpg)
+
+<use images/shapes_example.jpg>
+Overfull \hbox (22.89624pt too wide) in paragraph at lines 161--161
+ [] 
+ []
+
+[10
+
+ <./images/shapes_example.jpg (PNG copy)>]
+<images/drawback_1.jpg, id=521, 536.75531pt x 68.50594pt>
+File: images/drawback_1.jpg Graphic file (type jpg)
+
+<use images/drawback_1.jpg>
+<images/drawback_2.jpg, id=522, 550.30594pt x 74.52844pt>
+File: images/drawback_2.jpg Graphic file (type jpg)
+
+<use images/drawback_2.jpg> [11
+
+ <./images/drawback_1.jpg> <./images/drawback_2.jpg>] [12
+
+] <images/helices_position.jpg, id=611, 446.41782pt x 317.68687pt>
+File: images/helices_position.jpg Graphic file (type jpg)
+
+<use images/helices_position.jpg> [13
+
+ <./images/helices_position.jpg>]
 \openout3 = `HelicesRNAs.vrb'.
 
 
-(./HelicesRNAs.vrb) [12
-
-] [13
-
-] [14
+(./HelicesRNAs.vrb) [14
 
 ]
-File: images/shrep_example.pdf Graphic file (type pdf)
- <use images/shrep_example.pdf> [15
+<images/energy_landscape.jpg, id=700, 536.75531pt x 302.63063pt>
+File: images/energy_landscape.jpg Graphic file (type jpg)
 
-]
-\openout3 = `HelicesRNAs.vrb'.
+<use images/energy_landscape.jpg> [15
 
-
-(./HelicesRNAs.vrb) [16
-
-] [17
+ <./images/energy_landscape.jpg (PNG copy)>] [16
 
 ]
 PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
@@ -1156,41 +1171,41 @@ RNAshapes_5.txt}
 PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAshapes_5.txt}
 
-Overfull \vbox (20.90935pt too high) detected at line 344
+Overfull \vbox (20.90935pt too high) detected at line 306
+ []
+
+[17
+
+]
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_20kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_20kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_15kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_15kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_10kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_10kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_5kcal.txt}
+PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+RNAhelix_5_5kcal.txt}
+
+Overfull \vbox (20.90935pt too high) detected at line 366
  []
 
 [18
 
-]
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_20kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_20kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_15kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_15kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_10kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_10kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_5kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAhelix_5_5kcal.txt}
-
-Overfull \vbox (20.90935pt too high) detected at line 404
- []
-
-[19
+] [19
 
 ] [20
-
-] [21
 
 ]
 \tf@nav=\write8
@@ -1202,36 +1217,41 @@ Overfull \vbox (20.90935pt too high) detected at line 404
 \tf@snm=\write10
 \openout10 = `HelicesRNAs.snm'.
 
- (./HelicesRNAs.aux)
 
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.0pt have occurred.
+! I can't find file `HelicesRNAs.aux'.
+\enddocument ...makeatletter \input \jobname .aux 
+                                                  \fi \@dofilelist \ifdim \f...
+l.389 \end{document}
+                    
+(Press Enter to retry, or Control-D to exit)
+Please type another input file name: 
+! Emergency stop.
+\enddocument ...makeatletter \input \jobname .aux 
+                                                  \fi \@dofilelist \ifdim \f...
+l.389 \end{document}
+                    
+End of file on the terminal!
 
- ) 
+ 
 Here is how much of TeX's memory you used:
- 21835 strings out of 493848
- 468683 string characters out of 3155815
- 1218945 words of memory out of 3500000
- 24498 multiletter control sequences out of 15000+200000
+ 21836 strings out of 493848
+ 469031 string characters out of 3155815
+ 1217230 words of memory out of 3500000
+ 24501 multiletter control sequences out of 15000+200000
  12769 words of font info for 48 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  55i,19n,95p,673b,1726s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/public/
-amsfonts/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmss10.p
-fb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texm
-f/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf/fonts/type1/public
-/amsfonts/cm/cmss9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssbx1
-0.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/
-texmf/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf/fonts/type1/p
-ublic/amsfonts/cm/cmssi9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/shar
-e/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/
-public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/c
-mtt10.pfb>
-Output written on HelicesRNAs.pdf (21 pages, 555119 bytes).
+!  ==> Fatal error occurred, no output PDF file produced!
+x10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssi
+10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/
+texmf/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/c
+msy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share
+/texmf/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/p
+ublic/amsfonts/cm/cmtt10.pfb>
+Output written on HelicesRNAs.pdf (20 pages, 611919 bytes).
 PDF statistics:
- 1171 PDF objects out of 1200 (max. 8388607)
- 49 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1040 PDF objects out of 1200 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 

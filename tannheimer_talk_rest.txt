@@ -1,0 +1,65 @@
+one distinguishes between haipin loops, bulge and internal loops and multiloops
+
+(this can be explained by the existence of modified bases in native RNAs, which leads to the formulation of a structure that is not the optimal under the energy model used.),
+
+by Zucker in 1989, he extended his algorithm so that it can search a group of  [compute all suboptimal structures with a range.]
+
+[give an example, for example, an 70 bases long sequence need 30 hours on a normal PC, find an exact example from paper]
+
+size of the energy range
+
+increasing the sequence length
+
+if we fi [for example there are algorithm 1, 2,3...]
+
+
+% frame 3
+\section{Introduction}
+\subsection{}
+\begin{frame}
+\frametitle{Structural components of RNA}
+  %\begin{block}
+    RNA has different structural components:
+    \begin{itemize}
+    \item single-stranded regions (SS)
+    \item hairpin loops (HL)
+    \item stacking regions (SR) = Stem
+    \item bulges on 5\'{}side (BL) or 3\'{}side (BR)
+    \item internal loops (IL)
+    \item multiloops (ML). 
+    \end{itemize}
+  %\end{block}
+\end{frame}
+
+
+% frame 10
+\section{develop a new structure abstraction}
+\subsection{}
+\begin{frame}
+\frametitle{}
+   \begin{block}{\small new algorithm should be:}
+   \begin{itemize}
+     \item develop a new algorithm for RNA secondary structures which keeps
+     track of the position of structural elements
+     \item be implemented in the framework of ''Abstract shapes of RNA''
+     \item be evaluated and compared to existing algorithms
+     \item The new algorithm will be used to design prediction strategies for
+     various classes of RNAs
+   \end{itemize} 
+   \end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Todo: capture of the pdf picture}
+\begin{figure}
+  \includegraphics[scale=0.4]{images/shrep_example.pdf} 
+\end{figure}
+\end{frame}
+
+
+    \item possible different helices type
+    
+    \item The energy of a particular base pair in a double stranded regions is
+    sequence independent, that is, Neighbors do not influence the energy.

@@ -355,3 +355,73 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
   %\caption{Structural components}
 \end{figure}
 \end{frame}
+
+
+
+\begin{frame}
+\frametitle{Free energy computation example}  
+\begin{figure}
+  \includegraphics[scale=0.4]{images/nearest_neighbour_energy.jpg} 
+\end{figure}
+\end{frame}
+
+
+
+% frame 7
+\begin{frame}
+\frametitle{Introducing abstract shapes}
+    In the domain of shapes, we care only about
+    \begin{itemize} 
+    \item open structures (OP)
+    \item closed structure (CP)
+    \item branching (''fork'', FK)
+    \item adjacency of structures (AD)
+    \end{itemize}
+    Level of detail is defined by an abstraction function $\pi$.
+    The abstraction function can be defined on the level of the structural components.
+\end{frame}
+
+% \begin{frame}
+% \frametitle{Defining abstract shapes}
+%    \begin{itemize} 
+%    \item A (very abstract) abstraction function :
+%    \item $\pi$(SS(l))           = OP      (single-stacked region)
+%    \item $\pi$(HL(a,l,b)         = CL      (hairpin)
+%    \item $\pi$(SR(a,x,b))       = $\pi$(x)                       (stacked region)
+%    \item $\pi$(IL(a,l,x,l\'b4,b))  = \'f0(x)       (interior loop)
+%    \item $\pi$(ML(a,c,b))       = FK($\pi$(x))                (multiloop) 
+%    \item E represents the ``empty structure''.
+%    \item where a, b = nucleotides, l = loop, c = list of adjacent 
+%    \item components and x = arbitrary structure elements.
+%    \end{itemize}
+% \end{frame}
+
+
+% frame 8
+\begin{frame}
+\frametitle{Example }
+\begin{figure}
+  \includegraphics[scale=0.4]{images/shrep_example.pdf} 
+\end{figure}
+\end{frame}
+
+
+    \item specific classes of RNAs, such as riboswitches or miRNA precursors,
+    show characteristic features within their folding space
+    \item the energy landscape of riboswitches harbors two equally low, but well
+    separated minima, but well separated minima
+    \item miRNA precursors is governed by one deep and well-defined minimum
+    \item develop specialized prediction algorithms for classes of RNAs
+    
+    
+    
+\begin{frame}[fragile]
+  \begin{block}{\small Abstract shape, Energy range: 5 kcal/mol}
+  \begin{verbatim}
+        UCGCGCACAGGACAUCCUAGGUACAAGGCCGCCGU
+-6.30   .((.((..(((....))).(((.....))))))).  [[][]]
+-4.90   ........(((....))).(((.....))).....  [][]
+-3.90   ....((..(((....)))..)).............  []
+  \end{verbatim}
+  \end{block}
+\end{frame}

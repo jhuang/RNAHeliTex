@@ -49,33 +49,17 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \begin{frame}
 \frametitle{Outline}
    \begin{itemize}
-   \item RNA secondary structure and algorithms  
-   \item Introducing abstract shapes  
+   \item RNA secondary structure components and classical algorithms  
+   \item Introducing concept of abstract shapes  
    \item Development of a new structure abstraction 
    \item Outlook            
    \end{itemize}
 \end{frame}
 
-% frame 3
-\section{Introduction}
-\subsection{}
-\begin{frame}
-\frametitle{Structural components of RNA}
-  %\begin{block}
-    RNA has different structural components:
-    \begin{itemize}
-    \item single-stranded regions (SS)
-    \item hairpin loops (HL)
-    \item stacking regions (SR) = Stem
-    \item bulges on 5\'{}side (BL) or 3\'{}side (BR)
-    \item internal loops (IL)
-    \item multiloops (ML). 
-    \end{itemize}
-  %\end{block}
-\end{frame}
+
   
 \begin{frame}
-\frametitle{Structural components of RNA}  
+\frametitle{Secondary structure components of RNA}  
 \begin{figure}
   \includegraphics[scale=0.4]{images/RNA_components.jpg} 
   \caption{Structural components}
@@ -87,7 +71,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \section{RNA folding by free energy minimization}
 \subsection{}
 \begin{frame}
-\frametitle{2 principles}
+\frametitle{Classical secondary structure algorithms}
   \begin{block}{Simplifying Assumptions for Structure Prediction}
     \begin{itemize}
     \item RNA folds into one minimum free-energy structure.
@@ -108,14 +92,6 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Free energy computation example}  
-\begin{figure}
-  \includegraphics[scale=0.4]{images/nearest_neighbour_energy.jpg} 
-\end{figure}
-\end{frame}
-
-
 % frame 4
 \begin{frame}
 \frametitle{Free energy computation example}  
@@ -126,6 +102,15 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 
 
 % frame 5
+\begin{frame}
+\frametitle{energy landscape}
+\begin{figure}
+  \includegraphics[scale=0.4]{images/energy_landscape_simple.jpg}
+\end{figure}
+\end{frame}
+
+
+% frame 6
 \begin{frame}
 \frametitle{Suboptimal structures}
   %\begin{block}
@@ -142,13 +127,15 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
   %\end{block}   
 \end{frame}
 
-% frame landscape
+
+% frame 7
 \begin{frame}
 \frametitle{energy landscape}  
 \begin{figure}
-  \includegraphics[scale=0.4]{images/energy_landscape_simple.jpg} 
+  \includegraphics[scale=0.5]{images/Yeast.png} 
 \end{figure}
 \end{frame}
+
 
 % frame 6
 \begin{frame}
@@ -163,55 +150,14 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     \end{itemize}
 \end{frame}
 
-% frame 7
-\begin{frame}
-\frametitle{Introducing abstract shapes}
-    In the domain of shapes, we care only about
-    \begin{itemize} 
-    \item open structures (OP)
-    \item closed structure (CP)
-    \item branching (''fork'', FK)
-    \item adjacency of structures (AD)
-    \end{itemize}
-    Level of detail is defined by an abstraction function $\pi$.
-    The abstraction function can be defined on the level of the structural components.
-\end{frame}
-
-% \begin{frame}
-% \frametitle{Defining abstract shapes}
-%    \begin{itemize} 
-%    \item A (very abstract) abstraction function :
-%    \item $\pi$(SS(l))           = OP      (single-stacked region)
-%    \item $\pi$(HL(a,l,b)         = CL      (hairpin)
-%    \item $\pi$(SR(a,x,b))       = $\pi$(x)                       (stacked region)
-%    \item $\pi$(IL(a,l,x,l\'b4,b))  = \'f0(x)       (interior loop)
-%    \item $\pi$(ML(a,c,b))       = FK($\pi$(x))                (multiloop) 
-%    \item E represents the ``empty structure''.
-%    \item where a, b = nucleotides, l = loop, c = list of adjacent 
-%    \item components and x = arbitrary structure elements.
-%    \end{itemize}
-% \end{frame}
-
-
-% frame 8
-\begin{frame}
-\frametitle{Example }
-\begin{figure}
-  \includegraphics[scale=0.4]{images/shrep_example.pdf} 
-\end{figure}
-\end{frame}
 
 
 % frame 9
-\begin{frame}[fragile]
-  \begin{block}{\small Abstract shape, Energy range: 5 kcal/mol}
-  \begin{verbatim}
-        UCGCGCACAGGACAUCCUAGGUACAAGGCCGCCGU
--6.30   .((.((..(((....))).(((.....))))))).  [[][]]
--4.90   ........(((....))).(((.....))).....  [][]
--3.90   ....((..(((....)))..)).............  []
-  \end{verbatim}
-  \end{block}
+\begin{frame}
+\frametitle{Abstract shape, Energy range: 5 kcal/mol}  
+\begin{figure}
+  \includegraphics[scale=0.6]{images/shapes_example.jpg} 
+\end{figure}
 \end{frame}
 
 
@@ -303,7 +249,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \begin{frame}
 \frametitle{Possible problems}
     \begin{itemize} 
-    \item do not preserve nesting of elements and meight lead to abstract shapes
+    \item do not preserve nesting of elements and might lead to abstract shapes
     where a helix index occurs more than once $\rightarrow$ solved with
     different representation form
     \item abstracting from bulge and internal loops might be to rigorous
@@ -423,12 +369,11 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 \begin{frame}
 \frametitle{Outlook: Designing RNA class predictors}
     \begin{itemize} 
-    \item specific classes of RNAs, such as riboswitches or miRNA precursors,
-    show characteristic features within their folding space
-    \item the energy landscape of riboswitches harbors two equally low, but well
-    separated minima, but well separated minima
-    \item miRNA precursors is governed by one deep and well-defined minimum
-    \item develop specialized prediction algorithms for classes of RNAs
+    \item develop abstraction
+    \item evaluate abstraction
+    \item algorithm implementation
+    \item algorithm evaluation
+    \item class predictors
     \end{itemize}
 \end{frame}
 
