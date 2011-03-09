@@ -425,3 +425,46 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
   \end{verbatim}
   \end{block}
 \end{frame}
+
+
+        UCGCGCACAGGACAUCCUAGGUACAAGGCCGCCGU
+-6.30   .((.((..(((....))).(((.....))))))).  [13.5,25]  
+-4.60   ........(((....))).(((........)))..  [13.5,26.5] 
+-3.90   ....((..(((....)))..)).............  [13.5]
+-3.60   .........((....(((.......)))...))..  [22]
+-3.40   ....((..(((....)))..))....((...))..  [13.5,30]
+-3.20   ..((((.....((.......)).....)).))...  [17]
+-2.80   .........((........(((.....))).))..  [25]
+-2.40   ...................(((........)))..  [26.5]
+-1.60   ....((..(((....)))..)).....((....))  [13.5,31.5]
+
+
+-3.9  .((((.((....)).(((((.((((...)))).))))).))))............. [10.5,27,22.5]
+-3.7  ..(((...((((......((((....)))).......)))).....)))....... [24.5]
+-3.6  .(((((...((...))((((.((((...)))).)))).)))))............. [13,27,22.5]
+-3.6  .((((.((......))((((.((((...)))).))))..))))............. [11.5,27,22.5]
+-3.4  ..((..((......))..))...((((((((((..((...))..)))))))))).. [11.5,39]
+
+-2.3  .((((.((....)).(((((.((((...)))).))))).))))..((....))... [10.5,27,22.5,49.5]
+-2.2  ..(((((....))).(((((.((((...)))).))))).........))....... [9.5,27,26]
+-2.2  ..((....(((...))).))...((((((((((..((...))..)))))))))).. [13,39]
+-2.2  ..((.......((...))))...((((((((((((.....)))))..))))))).. [15,38]
+
+
+\begin{frame}
+\frametitle{Possible problems}
+    \begin{itemize} 
+    \item do not preserve nesting of elements and might lead to abstract shapes
+    where a helix index occurs more than once $\rightarrow$ solved with
+    different representation form
+    \item abstracting from bulge and internal loops might be to rigorous
+    $\rightarrow$ refine the definition of the abstraction, such that all critical criteria
+    are met
+    \item records of helices is a lot more than the records of shapes
+    $\rightarrow$ runtime problem  %translation of ..的多
+    \end{itemize}
+\end{frame}
+
+
+    \item The energy of a particular base pair in a double stranded regions is
+    sequence independent
