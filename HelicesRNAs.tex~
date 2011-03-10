@@ -27,7 +27,7 @@
 \setbeamercovered{invisible}
 
 
-\title{Helices of RNAs}
+\title{Helices indices of RNAs}
 \author{\large Jiabin~Huang}
 \date{\today}
 
@@ -49,70 +49,41 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \begin{frame}
 \frametitle{Outline}
    \begin{itemize}
-   \item RNA secondary structure and algorithms  
-   \item Introducing abstract shapes  
-   \item Development of a new structure abstraction 
-   \item Outlook            
+   \item an overview of RNA secondary structure domains and a classical RNA secondary structure prediction algorithm
+   \item introducing concept of abstract shapes  
+   \item basic idea about the helices indices
+   \item outlook            
    \end{itemize}
 \end{frame}
 
-% frame 3
-\section{Introduction}
-\subsection{}
-\begin{frame}
-\frametitle{Structural components of RNA}
-  %\begin{block}
-    RNA has different structural components:
-    \begin{itemize}
-    \item single-stranded regions (SS)
-    \item hairpin loops (HL)
-    \item stacking regions (SR) = Stem
-    \item bulges on 5\'{}side (BL) or 3\'{}side (BR)
-    \item internal loops (IL)
-    \item multiloops (ML). 
-    \end{itemize}
-  %\end{block}
-\end{frame}
   
 \begin{frame}
-\frametitle{Structural components of RNA}  
+\frametitle{Secondary structure elements of RNA}  
 \begin{figure}
   \includegraphics[scale=0.4]{images/RNA_components.jpg} 
-  \caption{Structural components}
+  \caption{Structural elements}
 \end{figure}
 \end{frame}
-
 
 
 \section{RNA folding by free energy minimization}
 \subsection{}
 \begin{frame}
-\frametitle{2 principles}
-  \begin{block}{Simplifying Assumptions for Structure Prediction}
+\frametitle{\large Classical secondary structure algorithms (Zuker 1981)}
+  \begin{block}{Simplifying Assumption for Structure Prediction}
     \begin{itemize}
-    \item RNA folds into one minimum free-energy structure.
     \item There are no knots (base pairs never cross).
-    \item The energy of a particular base pair in a double stranded regions is
-    sequence independent
     \end{itemize} 
   \end{block}
-  \begin{block}{RNA has different structural components}
+  \begin{block}{facts about Zuker algorithm}
     \begin{itemize}
-    \item single-stranded regions (first described by Zuker and Stiegler in
-    1981)
-    \item RNA folding are stabilized by the stacking or by dangling end
-    \item destabilized by hairpin, internal and bulge loops
+    \item first described by Zuker and Stiegler in 1981
+    \item idea: every secondary structure can be attached with an energy value according to some rules,
+          the algorithm computes with a given RNA sequence the structure with the minimum free energy.
     \item the runtime is $O(n^3)$
+    \item can get only one structure
     \end{itemize}
   \end{block}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Free energy computation example}  
-\begin{figure}
-  \includegraphics[scale=0.4]{images/nearest_neighbour_energy.jpg} 
-\end{figure}
 \end{frame}
 
 
@@ -126,6 +97,15 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 
 
 % frame 5
+\begin{frame}
+\frametitle{energy landscape}
+\begin{figure}
+  \includegraphics[scale=0.4]{images/energy_landscape_simple.jpg}
+\end{figure}
+\end{frame}
+
+
+% frame 6
 \begin{frame}
 \frametitle{Suboptimal structures}
   %\begin{block}
@@ -142,13 +122,15 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
   %\end{block}   
 \end{frame}
 
-% frame landscape
+
+% frame 7
 \begin{frame}
 \frametitle{energy landscape}  
 \begin{figure}
-  \includegraphics[scale=0.4]{images/energy_landscape_simple.jpg} 
+  \includegraphics[scale=0.5]{images/Yeast.png} 
 \end{figure}
 \end{frame}
+
 
 % frame 6
 \begin{frame}
@@ -163,60 +145,20 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     \end{itemize}
 \end{frame}
 
-% frame 7
-\begin{frame}
-\frametitle{Introducing abstract shapes}
-    In the domain of shapes, we care only about
-    \begin{itemize} 
-    \item open structures (OP)
-    \item closed structure (CP)
-    \item branching (''fork'', FK)
-    \item adjacency of structures (AD)
-    \end{itemize}
-    Level of detail is defined by an abstraction function $\pi$.
-    The abstraction function can be defined on the level of the structural components.
-\end{frame}
-
-% \begin{frame}
-% \frametitle{Defining abstract shapes}
-%    \begin{itemize} 
-%    \item A (very abstract) abstraction function :
-%    \item $\pi$(SS(l))           = OP      (single-stacked region)
-%    \item $\pi$(HL(a,l,b)         = CL      (hairpin)
-%    \item $\pi$(SR(a,x,b))       = $\pi$(x)                       (stacked region)
-%    \item $\pi$(IL(a,l,x,l\'b4,b))  = \'f0(x)       (interior loop)
-%    \item $\pi$(ML(a,c,b))       = FK($\pi$(x))                (multiloop) 
-%    \item E represents the ``empty structure''.
-%    \item where a, b = nucleotides, l = loop, c = list of adjacent 
-%    \item components and x = arbitrary structure elements.
-%    \end{itemize}
-% \end{frame}
-
-
-% frame 8
-\begin{frame}
-\frametitle{Example }
-\begin{figure}
-  \includegraphics[scale=0.4]{images/shrep_example.pdf} 
-\end{figure}
-\end{frame}
 
 
 % frame 9
-\begin{frame}[fragile]
-  \begin{block}{\small Abstract shape, Energy range: 5 kcal/mol}
-  \begin{verbatim}
-        UCGCGCACAGGACAUCCUAGGUACAAGGCCGCCGU
--6.30   .((.((..(((....))).(((.....))))))).  [[][]]
--4.90   ........(((....))).(((.....))).....  [][]
--3.90   ....((..(((....)))..)).............  []
-  \end{verbatim}
-  \end{block}
+\begin{frame}
+\frametitle{Abstract shape, energy range: 5 kcal/mol}  
+\begin{figure}
+  \includegraphics[scale=0.6]{images/shapes_example.jpg} 
+\end{figure}
 \end{frame}
 
 
 % frame 10
 \section{develop a new structure abstraction}
+\frametitle{Drawback of abstract shape}
 \subsection{}
 \begin{frame}
 \frametitle{}
@@ -226,12 +168,12 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
    independence of the abstraction
    \end{itemize}
    \end{block}
-   \begin{block}{\small Drawback of abstract shape}
+   \begin{block}{\small Drawback example 1 of abstract shape}
    \begin{figure}
      \includegraphics[scale=0.55]{images/drawback_1.jpg} 
    \end{figure}
    \end{block}
-   \begin{block}{\small Drawback of abstract shape}
+   \begin{block}{\small Drawback example 2 of abstract shape}
    \begin{figure}
      \includegraphics[scale=0.55]{images/drawback_2.jpg} 
    \end{figure}
@@ -244,15 +186,15 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \frametitle{develop a new structure abstraction}
     The straightforward idea to overcome the position independence of the
     current available shape abstractions is
-    \begin{block}{what keeps track of positions}
+    \begin{block}{the position of which secondary structure domains will be
+    tracked}
     \begin{itemize} 
     \item helical regions of hairpin loop
-    \item multiloops, as possible braching points, are structurally important    
-    \item stacked pairs, bulge and internal loops are the main structural
-    contributors 
+    \item helical regions of multiloops %, as possible braching points, are structurally important    
+    \item helical regions of stacked pairs, bulge and internal loops %are the main structural contributors 
     \end{itemize}
     \end{block}
-    \begin{block}{which positions of the base pair will be tracked}
+    \begin{block}{which positions of the vordefined structure domain will be tracked}
     \begin{itemize} 
     \item i
     \item j   
@@ -264,61 +206,78 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 
 % frame landscape
 \begin{frame}
-\frametitle{energy landscape}  
+\frametitle{helices positions example}  
 \begin{figure}
-  \includegraphics[scale=0.4]{images/helices_position.jpg} 
+  \includegraphics[scale=0.5]{images/helices_position.jpg} 
+  \caption{The structure is composed of two helices which are closed by hairpin
+  loops (i,j) and (k,l), respectively. The positions are: i=8, j=13, k=35 and
+  l=41. Thus, this structure would be abstracted to [10.5,38]}
 \end{figure}
 \end{frame}
 
 % frame 11
 \begin{frame}[fragile]
-  Output from the first trial version of helices shape
-  \begin{block}{\small Helices shape, Energy range: 5 kcal/mol}
-  %\begin{alltt}
+  Output from the first trial version of helices indices
+  \begin{block}{\tiny Helices shape, Energy range: 5 kcal/mol}
+  %\begin{alltt}     %[fontsize=\small] 
+  \tiny
   \begin{verbatim}
-        UCGCGCACAGGACAUCCUAGGUACAAGGCCGCCGU
--6.30   .((.((..(((....))).(((.....))))))).  [13.5,25]  
--4.60   ........(((....))).(((........)))..  [13.5,26.5] 
--3.90   ....((..(((....)))..)).............  [13.5]
--3.60   .........((....(((.......)))...))..  [22]
--3.40   ....((..(((....)))..))....((...))..  [13.5,30]
--3.20   ..((((.....((.......)).....)).))...  [17]
--2.80   .........((........(((.....))).))..  [25]
--2.40   ...................(((........)))..  [26.5]
--1.60   ....((..(((....)))..)).....((....))  [13.5,31.5]
+-10.7 ..((...((((((..(((((.((((...)))).)))))..))).)))..))..... [27] *
+-9.0  .......................((((((((((((.....)))))..))))))).. [38] *
+-6.7  ..((..((......))..))...((((((((((((.....)))))..))))))).. [11.5,38]
+-6.6  ..((.(((.....)))..))...((((((((((((.....)))))..))))))).. [11,38]
+-6.4  .(((((.........(((((.((((...)))).))))))))))..((....))... [27,49.5]
+-6.2  ..((((((....))))..))...((((((((((((.....)))))..))))))).. [10.5,38]
+-5.5  ..((....(((...))).))...((((((((((((.....)))))..))))))).. [13,38]
+-5.0  ..((((((...))))...))...((((((((((((.....)))))..))))))).. [10,38]
+-4.8  .(((((.........(((((.((((...)))).)))))))))).....((....)) [27,52.5]
+-4.6  ..(((((....)))....))...((((((((((((.....)))))..))))))).. [9.5,38]
+-4.2  .(((((.........(((((.((((...)))).))))))))))....((...)).. [27,51]
+       ...
+-3.3  .((((((....))).(((((.((((...)))).)))))..)))............. [9.5,27,22.5]
+-3.3  .(((((.........(((((.((((...)))).))))))))))....((....)). [27,51.5]
+-3.3  ..((((.....)).....))...((((((((((((.....)))))..))))))).. [9,38]
+-3.3  ..(((.((....)).(((((.((((...)))).)))))........)))....... [10.5,27,26]
+-3.3  ..((.(((.....)))..))...((((((((((..((...))..)))))))))).. [11,39]
+-3.2  ..((..((......))..))...((((((((.....(((....))))))))))).. [11.5,41.5]
+-3.1  ..((.(((.....)))..))...((((((((.....(((....))))))))))).. [11,41.5]
+-3.0  .(((((.........(((((.((((...)))).)))))))))).....((...)). [27,52]
+-2.9  ..((((((....))))..))...((((((((((..((...))..)))))))))).. [10.5,39]
+-2.9  ..(((...........((((.....)))).(((((.....))))).)))....... [23,38,26]
+-2.9  ..(((.............((((....))))(((((.....))))).)))....... [24.5,38,26]
+-2.8  .((.((((....))))((((.((((...)))).))))........))......... [10.5,27,24.5]
+-2.8  ..((.(((....)))(((((.((((...)))).)))))...........))..... [10.5,27,27]
+-2.8  ..((...((((((..(((.....(((......))))))..))).)))..))..... [29.5]
+-2.7  .((.(((....))).(((((.((((...)))).))))).......))......... [9.5,27,24.5]
+-2.7  ..((((((....))))..))...((((((((.....(((....))))))))))).. [10.5,41.5]
+-2.7  ..((...........(((((.((((...)))).))))).((.....)).))..... [27,44,27]
+-2.4  ..(((((....))).(((((.((((...)))).)))))...........))..... [9.5,27,27]
+-2.3  ................((((..(((...)))((((.....))))........)))) [36.5,27,38] *
   \end{verbatim} 
   %\end{alltt}
   \end{block}
 \end{frame}
 
-
+\normalsize
 % frame landscape
 \begin{frame}
-\frametitle{energy landscape}  
+\frametitle{energy barrier}  
 \begin{figure}
-  \includegraphics[scale=0.4]{images/energy_landscape.jpg} 
+  \includegraphics[scale=0.4]{images/energy_barrier.jpg} 
 \end{figure}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Possible problems}
-    \begin{itemize} 
-    \item do not preserve nesting of elements and meight lead to abstract shapes
-    where a helix index occurs more than once $\rightarrow$ solved with
-    different representation form
-    \item abstracting from bulge and internal loops might be to rigorous
-    $\rightarrow$ refine the definition of the abstraction, such that all critical criteria
-    are met
-    \item records of helices is a lot more than the records of shapes
-    $\rightarrow$ runtime problem  %translation of ..的多
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Growth of structure, helix and shape space}
+\frametitle{Possible problem}
+  \scriptsize
+  Although the helices space grows considerably slower than structure space, but
+  it is still exponential
+  \normalsize
+  \begin{block}{\tiny Growth of structure, helix and shape space}
+  %\begin{figure}
     \centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=0.7]
 		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
 		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
 		%\end{semilogyaxis}
@@ -356,15 +315,22 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
         
         %\addlegendentry{Legenden Eintrag};
         \end{semilogyaxis} 
-
 	\end{tikzpicture}
+	%\caption{Growth of structure, helix and shape space}	
+  %\end{figure}	
+  \end{block}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Growth of helix space  }
+\frametitle{Solution of possible problem}
+  \small
+  One of the solution: we limit the helices space by setting an energy range on
+  it
+  \normalsize
+  \begin{block}{\tiny Growth of helix space}     
     \centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=0.7]
 		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
 		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
 		%\end{semilogyaxis}
@@ -416,20 +382,18 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
         
         %\addlegendentry{Legenden Eintrag};
         \end{semilogyaxis} 
-
 	\end{tikzpicture}
+  \end{block}	
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Outlook: Designing RNA class predictors}
     \begin{itemize} 
-    \item specific classes of RNAs, such as riboswitches or miRNA precursors,
-    show characteristic features within their folding space
-    \item the energy landscape of riboswitches harbors two equally low, but well
-    separated minima, but well separated minima
-    \item miRNA precursors is governed by one deep and well-defined minimum
-    \item develop specialized prediction algorithms for classes of RNAs
+    \item Development of a new structure abstraction (helices index)
+    \item Implementation of an algorithm based on the structure abstraction
+    \item Evaluating the algorithm
+    \item Designing RNA class predictors.
     \end{itemize}
 \end{frame}
 

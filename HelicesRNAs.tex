@@ -27,7 +27,7 @@
 \setbeamercovered{invisible}
 
 
-\title{Helices of RNAs}
+\title{Helices indices of RNAs}
 \author{\large Jiabin~Huang}
 \date{\today}
 
@@ -49,42 +49,39 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \begin{frame}
 \frametitle{Outline}
    \begin{itemize}
-   \item RNA secondary structure components and classical algorithms  
-   \item Introducing concept of abstract shapes  
-   \item Development of a new structure abstraction 
-   \item Outlook            
+   \item an overview of RNA secondary structure domains and a classical RNA secondary structure prediction algorithm
+   \item introducing concept of abstract shapes  
+   \item basic idea about the helices indices
+   \item outlook            
    \end{itemize}
 \end{frame}
 
-
   
 \begin{frame}
-\frametitle{Secondary structure components of RNA}  
+\frametitle{Secondary structure elements of RNA}  
 \begin{figure}
   \includegraphics[scale=0.4]{images/RNA_components.jpg} 
-  \caption{Structural components}
+  \caption{Structural elements}
 \end{figure}
 \end{frame}
-
 
 
 \section{RNA folding by free energy minimization}
 \subsection{}
 \begin{frame}
 \frametitle{\large Classical secondary structure algorithms (Zuker 1981)}
-  \begin{block}{Simplifying Assumptions for Structure Prediction}
+  \begin{block}{Simplifying Assumption for Structure Prediction}
     \begin{itemize}
-    \item RNA folds into one minimum free-energy structure.
     \item There are no knots (base pairs never cross).
     \end{itemize} 
   \end{block}
-  \begin{block}{RNA has different structural domains}
+  \begin{block}{facts about Zuker algorithm}
     \begin{itemize}
-    \item single-stranded regions (first described by Zuker and Stiegler in
-    1981)
-    \item RNA folding are stabilized by the stacking or by dangling end
-    \item destabilized by hairpin, internal and bulge loops
+    \item first described by Zuker and Stiegler in 1981
+    \item idea: every secondary structure can be attached with an energy value according to some rules,
+          the algorithm computes with a given RNA sequence the structure with the minimum free energy.
     \item the runtime is $O(n^3)$
+    \item can get only one structure
     \end{itemize}
   \end{block}
 \end{frame}
@@ -220,7 +217,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 
 % frame 11
 \begin{frame}[fragile]
-  Output from the first trial version of helices shape
+  Output from the first trial version of helices indices
   \begin{block}{\tiny Helices shape, Energy range: 5 kcal/mol}
   %\begin{alltt}     %[fontsize=\small] 
   \tiny
