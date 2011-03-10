@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.07pt}
+\select@language {english}
+\beamer@sectionintoc {1}{RNA folding by free energy minimization}{4}{0}{1}
+\beamer@sectionintoc {2}{develop a new structure abstraction}{11}{0}{2}
