@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.3.3)  11 MAR 2011 12:00
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.3.3)  11 MAR 2011 14:18
 entering extended mode
  %&-line parsing enabled.
 **HelicesRNAs.tex
@@ -1125,7 +1125,7 @@ Overfull \hbox (17.11638pt too wide) in paragraph at lines 131--131
 File: images/shapes_example.jpg Graphic file (type jpg)
 
 <use images/shapes_example.jpg>
-Overfull \hbox (22.89624pt too wide) in paragraph at lines 156--156
+Overfull \hbox (22.89624pt too wide) in paragraph at lines 155--155
  [] 
  []
 
@@ -1159,17 +1159,13 @@ File: images/helices_position.jpg Graphic file (type jpg)
 File: images/energy_barrier.jpg Graphic file (type jpg)
 
 <use images/energy_barrier.jpg>
-Overfull \hbox (9.88951pt too wide) in paragraph at lines 271--271
+Overfull \hbox (9.88951pt too wide) in paragraph at lines 269--269
  [] 
  []
 
 [15
 
  <./images/energy_barrier.jpg>]
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAsubopt.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
-RNAsubopt.txt}
 PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix.txt}
 PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
@@ -1224,13 +1220,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 21875 strings out of 493848
- 470258 string characters out of 3155815
- 1225073 words of memory out of 3500000
- 24541 multiletter control sequences out of 15000+200000
+ 21872 strings out of 493848
+ 470115 string characters out of 3155815
+ 1144833 words of memory out of 3500000
+ 24540 multiletter control sequences out of 15000+200000
  13063 words of font info for 49 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 55i,21n,95p,673b,2022s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,21n,95p,673b,2019s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf/
 fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/public/a
 msfonts/cm/cmss10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmss12.p
@@ -1240,11 +1236,10 @@ amsfonts/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssi
 10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/
 texmf/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf/fonts/type1/p
 ublic/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/
-texmf/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on HelicesRNAs.pdf (19 pages, 593144 bytes).
+sy9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on HelicesRNAs.pdf (19 pages, 579520 bytes).
 PDF statistics:
- 970 PDF objects out of 1000 (max. 8388607)
+ 966 PDF objects out of 1000 (max. 8388607)
  43 named destinations out of 1000 (max. 500000)
  168 words of extra memory for PDF output out of 10000 (max. 10000000)
 

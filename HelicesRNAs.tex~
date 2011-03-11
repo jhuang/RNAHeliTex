@@ -146,8 +146,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-
-% frame 9
+% frame 10
 \begin{frame}
 \frametitle{Abstract shape, energy range: 5 kcal/mol}  
 \begin{figure}
@@ -156,9 +155,8 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-
 % PART 3: helices indices
-% frame 10
+% frame 11
 \section{develop a new structure abstraction}
 \frametitle{Drawback of abstract shape}
 \subsection{}
@@ -183,7 +181,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-% frame 11
+% frame 12
 \begin{frame}
 \frametitle{develop a new structure abstraction}
     The straightforward idea to overcome the position independence of the
@@ -206,7 +204,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     \end{block}
 \end{frame}
 
-% frame 12
+% frame 13
 % frame landscape
 \begin{frame}
 \frametitle{helices positions example}  
@@ -218,7 +216,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{figure}
 \end{frame}
 
-% frame 13
+% frame 14
 \begin{frame}[fragile]
   Output from the first trial version of helices indices
   \begin{block}{\tiny Helices shape, Energy range: 5 kcal/mol}
@@ -274,10 +272,14 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \begin{frame}
 \frametitle{Possible problem}
   \scriptsize
-  Although the helices space grows considerably slower than structure space, but
-  it is still exponential
+  %Although the helices space grows considerably slower than structure space, but
+  %it is still exponential
+
+  %Growth of structure, helix and shape space
+  Although both the abstract shapes and helices indices space grow exponentially with sequence length and suboptimal energy range, 
+  the helices indices space grows considerably faster.
   \normalsize
-  \begin{block}{\tiny Growth of structure, helix and shape space}
+  \begin{block}{\tiny comparison of helices indices space with and abstract shapes space}
   %\begin{figure}
     \centering
 	\begin{tikzpicture}[scale=0.7]
@@ -290,12 +292,12 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
          legend pos= north west]
      
         
-         \addplot+[only marks,mark=+]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
-         \addlegendentry{Structures}         
-         \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
-         \addlegendentry{$0.33 \cdot x -3.24$}
+         %\addplot+[only marks,mark=+]
+         %table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
+         %\addlegendentry{Structures}         
+         %\addplot table[x=X,y={create col/linear
+         %regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
+         %\addlegendentry{$0.33 \cdot x -3.24$}
          
          
          \addplot+[only marks,mark=-]
@@ -331,7 +333,7 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
   One of the solution: we limit the helices space by setting an energy range on
   it
   \normalsize
-  \begin{block}{\tiny Growth of helix space}     
+  \begin{block}{\tiny comparison of helices indices space setting different energy ranges}     
     \centering
 	\begin{tikzpicture}[scale=0.7]
 		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
@@ -390,7 +392,7 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 \end{frame}
 
 
-% PART 4: outlook
+% PART 4: outlook   
 % frame 18
 \begin{frame}
 \frametitle{Outlook: Designing RNA class predictors}

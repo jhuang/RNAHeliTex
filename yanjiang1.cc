@@ -57,132 +57,116 @@ energy and energy of the first sub-optimal confirmation is enough big.
   further more, the runtime grows also expnentially.
 - The second point is if no additonal clues are given, we don't know which suboptimal structure are better than the other one.
 
+
 9. 
 - One of the solution is we can further classify secondary structures within the lower energy range with different definition.
-  If we take only few representative for every class so that we can reduce the number of similar structures and the output records will be largely reduced.
+  If we take only few or only one representative for every class so that we can reduce the number of similar structures 
+  and the output records will be largely reduced.
 - The abstract shapes is one approach in this direction.
 - Abstract shapes is developed by Giegerich and our Bjoern.
-
-Central to this approach is we do not care about all details of the structures and  abstract from lengths of structural elements or from some elements in total, for example bulge and internal loops.
-That means, we classify the structures according to the intuitive shape, because the user is usually only interested in structures that show fundamental differences. Small changes, such as additional base pairs or changing bulge loops are of minor significance. [???], the diagram showing us how the class in abstract shape model in type 5 classified.
-Each shape class has a representative structure called shrep. It is the minimum folding energy within the class.
-
+- intial idea: 
+  - the user is usually only interested in structures that show fundamental differences. 
+  - Small changes, such as additional base pairs or changing bulge loops are of minor significance. 
+- Central to this approach is we do not care about all details of the structures and abstract from lengths of structural elements or from some elements in total, 
+  for example in abstract shape type 5, all loops excepts for internal loop and multiloop are abstracted.
+- each shape has a representative structure called shrep. It is the minimum folding energy within the class.    
 
 
 10. 
-this slide shows predicted shreps in an energy range of 5 kcal/mol above the mfe.
-the left side is the classical dot-bracket representation, in the representation, two matching parentheses represent
-a base pairs between the corresponding positions. and a dot stands for an unpaired base. On the right side, is the abstract
-shape 5. Abstract shape 5 most abstract type. It abstracts from internal loop, bulge loop and stack lengths.
-Only the helix nesting pattern of hairpin loop and multiloop are remaining, the helical regions of the 2 loops are represented as
-a pair of opening and closing square brackets.
-- In the example, we find 3 abstract shapes in this energy range from -6.3 to -1.3 kcal/mol.
-  in the first records, on the left side is the shape representative for the shape class on the right side, the energy of the shrep is -6.3,
-  and it consists of 2 hairpin loops, one multiloop and bulge loop, but only the hairpin loops and multiloop are represented by the abstract shape.
-  in contrast, In the 2nd record, all 2 hairpin loop are represented by the shape
-  in the last record, the hairpin is described, butthe internal loop is abstracted.
+- this figure shows an example output from software RNAshapes in an energy range of 5 kcal/mol above the mfe.  
+- the abstract shape type is 5
+- the picuture above is the corresponding 2D representation of the 3 records below.
+- So lets look in a bit more detail at the below part. 
+- on the left side, it is abstract shape in type 5, as I said before, shape type 5 only take helical regions of hairpin loop and multiloop into accout,
+  so for example, for the first record, we only consider the hairpin loop in the middle of the secondary structure. the helical regions of the 2 loops are represented as a pair of 
+  opening and closing square brackets.
+- in the middle part below is the classical dot-bracket representation for secondary structure, in this representation, two matching parentheses represent
+  a base pairs between the corresponding positions and a dot stands for an unpaired base.   
+- on the right side, is the mfe with the abstract shape class, namely the energy of the secondary structure in the middle part.
+- In the example, we notice, that it exists 3 abstract shape classes whose energy spans from -6.3 to -1.3 kcal/mol if we set a range energy as 5 kcal/mol.
+
 
 11. 
-1. drawback of abstract shape analysis is the position independence of the abstraction.
-2. What is consequence?
-3. Firstly, the shape class holds structures which are not as similar as the abstraction suggests.
-For example as the figure showed, the RNA in the figure yields the same abstract shape '[]' (square brackets) but actually helices in both sequence lies in different regions.
-4. The second drawback, with the abstract shape, it is impossible to set up relationships between different shapes of the same RNA, because the mapping might be ambiguous.
-For example in the figure, abstract shape above is one square brackets, abstract shape below is 2 square brackets, Although the second abstract shape looks like doubled as the first one,
-but we can't set up correct relations based on the shape information, because the both secondary structures composed of totally different helices.
-5. The 2 drawbacks make the current implementation of shape abstraction unsuitable for the analysis of folding landscapes in a detailed fashion.
+- the abstract shape works pretty well, but one drawback is still there. namely 照读. 
+- that means, we can not track the positions of RNA secondary structure elements 
+- What is consequence?
+- the consequence is that with the model, it is impossible to set up relationships between different shapes, because the mapping might be ambiguous.
+- For example in the figure, abstract shape above is one square brackets, abstract shape below is 2 square brackets, Although the second abstract shape 
+  looks like doubled as the first one, but we can't set up correct relations based on the shape information, because the both secondary structures 
+  composed of totally different helices.
+- the drawback make the current implementation of shape abstraction unsuitable for the analysis of folding landscapes in a detailed fashion.
 
 
 12. 
-For the reason we will develop a new structure abstraction that includes the information of positions of helices. To develop it, 2 things have to been considered,
-the first is which element we should record for the representation,
-the second point is which position we should record for the algorithm.
-For the first point, we have candidate helical regions of hairpin loop, the helical regions of multiloop and helical regions of bulge or internal loops.
-The nex point is to decide which positions of the base pair to use, we have 4 candiates. Among the 4 candiates
-i means the beginning postion of the helices,
-j measn the end position of helices,
-or we record the the beginning position of the helices and end position together as a data structure
-the last possibility is we take only the central position of the base pair.
-Theoretically, one can combine the first part with the second part arbitrarily. but some consequence for different combinition,
-if we choose a very less abstracted of secondary component, for example if we only track the hairpin position,
-the advantage is the output records is relatively less and the program will run faster.
-The disadvantage is such simplification will loses the accuracy because it ignores some detailed information.
-For the second point, we consider the central positions models have some advantages over the other, because in this model we need
-only storage one number for every loop but it incorporate the information of both positions, it is a balance of the storage and
-information.
+- for the reason we will develop a new structure abstraction that includes the information of positions of helices. 
+- to develop it, 2 things have to been considered,
+- the first thing is which element we should take to record the positions.
+- the second point is which position of elements we should take. 
+- for the first point, we have 4 candidate: hairpin loop, multiloop, bulge or internal loops and any combinations of them.
+  if we choose a very less abstracted of secondary component, for example if we only track the hairpin position,
+  the advantage is the output records is relatively less and the program will run faster.
+  The disadvantage is such simplification will loses the accuracy because it ignores some detailed information.
+- for the second point, we have also 4 candidates to track to the positions.  
+  i means the beginning postion of the helices,
+  j means the end position of helices,
+  the combination i,j means we record both beginning position and end positon of the helices 
+  i+j/2 means we record the central position of base pair.
+  we consider the central positions models have some advantages over the other, because in this model we need
+  only storage one number for every loop but it incorporate the information of both positions
 
 13. 
-To better understand it, I prepared a small example,
-In this example, we abstract from multiloop, bulge loop and internal loop. We only consider hairpin loop to track the positions,
-In addition, as I explained last slide, we take the central position to record these loops.
-So as the figure showed, the structure is composed of 2 hairpin loops which are closed at the position (i,j) and (k,l) respectively.
-The position of i is 8, j is 13, k is 35 and l is 41, so the central position of the first hairpin loop is 10.5 and the second one is
-38, Thus, this structure would be abstracted to [10.5, 38].
-The abstraction doesn't take bulge, internal and multiloop into account, but especially multiloop, they are structurally important.
-For the reason, we will implement program with some different options, different helical regions from different loops will be considered
-in these options.
-For example, the most abstract level is helix type 5, it remains only the helical regions of hairpin loop.
-                 less abstract level is helix type 4, it will include the multiloop except for hairpin loop and so on.
-
+- To better understand it, I prepared a small example,
+- In this example, we abstract from multiloop, bulge loop and internal loop. We only consider hairpin loop and use the central positions.
+- In addition, we take the central position to record these loops.
+- So as the figure showed, the structure is composed of 2 hairpin loops which are closed at the position (i,j) and (k,l).
+  The position of i is 8, j is 13, k is 35 and l is 41, so the central position of the first hairpin loop is 10.5 and the second one is
+  38, Thus, this structure would be abstracted to [10.5, 38].
 
 14. 
-In this slide, I will show the first test of the proposed abstraction function on the complete set of suboptimal structures for a test
-RNA. It was computed by first trival version of the program helices shape.
-In this example, we take the multiloop and hairpin loop into account, the representation position is the central position.
-The most interesting point from the result is, the 2 conformations with helix index 27 and 38, appear as the 2 first results.
-And if we search further in the list, we can find a combination of the 2 central position at the bottom of the list, namely
-the records.
-What does it mean? [What can we get more information from the list?]
-The solution is in the next slide.
+- In this slide, I will show the first test result on a test RNA sequence. 
+- In this example, we take the multiloop and hairpin loop into account and use the central position.
+- the most interesting point from the result is, the 2 conformations with helix index 27 and 38, appear as the first 2 results.
+  and if we search further in the list, we can find a combination of the 2 central position at the bottom of the list, namely the records here.
+- What does it mean? the solution is in the next slide.
 
 
 15. 
-It is easy to understand, the first record is the global minimum structure and the second record is a lowest suboptimal structure.
-They have almost the same free energy.
-From the list last slide, a structure that combined the 2 helices exists, we can treat the structure as the saddle point.
-If we will move from mfe structure to the lowest suboptimal structure, we have to pass the saddle point.
-Because the free energy of all the recognized structure are clear, thus, through this simple analysis we can calculate the energy
-barriers between the alternate structure and saddle structure. it is 8.4 kcal/mol.
-
+- It is easy to understand, the first record is the global minimum structure and the second record is a lowest suboptimal structure.
+- They have almost the same free energy.
+- From the list last slide, a structure that combined the 2 helices exists, we can treat the structure as the saddle point.
+  If we will move from mfe structure to the lowest suboptimal structure, we have to pass the saddle point.
+  Because the free energy of all the recognized structure are clear, thus, through this simple analysis we can calculate the energy
+  barriers between the alternate structure and saddle structure. it is 8.4 kcal/mol.
 
 16. 
-- At first, I will explain what is the structure space, helices space and shapes space.
-  The structure space means the set of all the suboptimal structures.
-  The helices space means the set of all suboptimal abstract helices structures.
-  The shapes space means the set of all suboptimal abstract shapes structures.
-- The figure is showing the comparison of helices space with structure space and shapes space.
-  The figure shows an increasing nr. of different type structures with increasing sequence length.
-  In more details,
-  The linie is regression linie of the  structure space,
-  The linie is regression linie of the  helices structure space,
-  The linie is regression linie of the  abstract shape space,
-- We're noticing that among the 3 type space, there is a common point, namely the number of all 3 type structures grow
-  exponential with the sequence length, because the y-axis is exponentially defined.
-  But the degree of steepness are different, the steeper the curve, the worse the runtime will be,
-- because the steepness of the linie means the exponent of the sequence length.
-  Compring with structure space, the curve of helices structure is less steep, but it is still about 0.18 big.
-  In practice, with a sequence length of 70 nt, the unmber of suboptimal helices structures already exceeds 1 million records.
+- from this slide, I will point out one serious problem we might encounter.
+  namely although both the abstract shapes and helices indices space grow exponentially with sequence length and suboptimal energy range, 
+  the helices indices space grows considerably faster. 
+- The figure shows the comparison of helices indices space with abstract shapes space
+  The linie is regression linie of the helices indices space,
+  The linie is regression linie of the abstract shapes space,
+- We're noticing that the y-axis is exponentially defined, so it means, the steepness of the linie is the exponent of the sequence length. 
+  the number of all 2 type structures grow exponential with the sequence length
+  but the degree of steepness are different, the steeper the curve, the worse the runtime will be,
+- In practice, with a sequence length of 70 nt, the unmber of suboptimal helices structures already exceeds 1 million records.
   and the program needs about 1 hour to calculate for 70 nt and about 30 hours to calculate for 72 nt sequence under our 32 cores super computer.
 - how can we solve this problem?
 
 17. 
-- one idea is that we can set an energy range to limit the helices space.
-- the figure shows the evaluation result by setting different energy range.
-  in the first linie, we let the energy unlimited, the exponent is the same as last slide
-  if we set an energy range 20 kcal/mol, so the exponent of the space will be reduced to one third, it amounts to 0.12,
-  on the last curve, we noticed, the exponent value is only 0.036. that means, the runtime grows almost as polynomial curve.
+- one idea is that we can set an energy range to limit the helices indices space.
+- the figure shows the evaluation result by setting different energy ranges.
+- in the first linie, we let the energy unlimited, the exponent is the same as last slide, it is about 0.18 [how does one read it?]
+- if we set an energy range 20 kcal/mol, so the exponent of the space will be reduced to one third, it amounts to 0.12,
+- on the last curve, we're noticing, the exponent value is only 0.036. that means, the runtime grows almost as polynomial curve.
 
 18. 
-in last slide, I will give the schedule of the project.
-At first, we will develop the new abstraction idea, namely the helices index that I just explained.
-after that, The idea will be implemented in C++ programming language,
-As next, the implemented software will be evaluated by comparing with another program.
-
-Because different RNA classes have characteristic features within their folding space, for example, the riboswitches have
-2 equally low, but well separated minima, while miRNA precursors has only one deep minimum, based on the energy landscape
-difference and the algorithms developed within this project, in the last part, we will
-design a RNA class predictors.
-
+- in last slide, I will give an outlook of the project.
+- at first, we will develop the new abstraction idea, namely the helices indices that I just explained.
+- after that, the idea will be implemented with the ADP framework in C++ programming language,
+- as next, the implemented software will be evaluated by comparing with another program.
+- because different RNA have different energy landscape, 
+  we can classify the RNA using the information of energy barriers information that are obtained from the software developed within this project, 
+  in the last part, we will design a RNA class predictors.
 
 19. 
 Thank you for your attention!
@@ -390,4 +374,70 @@ because the number of suboptimal structures grows exponentially with the size of
 among the huge number suboptimal structure.
 
 //It is inspired by the dot-bracket representation know from the Vienna RNA package
+
+
+[???], the diagram showing us how the class in abstract shape model in type 5 classified.
+
+That means, we classify the structures according to the intuitive shape, because 
+
+the diagram showing us how the class in abstract shape model in type 5 classified.
+
+
+in this energy range
+
+
+  in the first records, on the left side is the shape representative for the shape class, the the energy of the shrep is -6.3, on the right side
+  and it consists of 2 hairpin loops, one multiloop and bulge loop, but only the hairpin loops and multiloop are represented by the abstract shape.
+  in contrast, In the 2nd record, all 2 hairpin loop are represented by the shape
+  in the last record, the hairpin is described, but the internal loop is abstracted.
+  
+  
+  independence of the abstraction.
+  
+  - Firstly, the shape class holds structures which are not as similar as the abstraction suggests.
+For example as the figure showed, the RNA in the figure yields the same abstract shape '[]' (square brackets) but actually helices in both sequence lies in different regions.
+4. The second drawback,
+
+The nex point is to
+
+record for the algorithm.
+
+decide which positions of the base pair to use, we have 4 candiates.
+Among the 4 candiates
+
+Theoretically, one can combine the first part with the second part arbitrarily. but some consequence for different combinition,
+
+, it is a balance of the storage and
+information.
+
+The abstraction doesn't take bulge, internal and multiloop into account, but especially multiloop, they are structurally important.
+For the reason, we will implement program with some different options, different helical regions from different loops will be considered
+in these options.
+For example, the most abstract level is helix type 5, it remains only the helical regions of hairpin loop.
+                 less abstract level is helix type 4, it will include the multiloop except for hairpin loop and so on.
+                 
+of the proposed abstraction function on the complete set of suboptimal structures for a test
+RNA. It was computed by first trival version of the program helices shape.        
+
+[What can we get more information from the list?]
+
+- At first, I will explain what is the structure space, helices space and shapes space.
+  The structure space means the set of all the suboptimal structures.
+  The helices space means the set of all suboptimal abstract helices structures.
+  The shapes space means the set of all suboptimal abstract shapes structures.
+  
+    The figure shows an increasing nr. of different type structures with increasing sequence length.
+  In more details,
+  
+    The linie is regression linie of the  structure space,
+    among the 2 type space, there is a common point, namely the number of all 3 type structures grow
+  exponential with the sequence length, because
+  
+  Compring with structure space, the curve of helices structure is less steep, but it is still about 0.18 big.
+  
+  because different RNA classes have characteristic features within their folding space, for example, the riboswitches have
+2 equally low, but well separated minima, while miRNA precursors has only one deep minimum,
+
+the the different energy landscape types of different RNA classes and 
+the the different energy landscape types of different RNA classes and 
  */

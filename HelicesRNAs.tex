@@ -146,7 +146,6 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-
 % frame 10
 \begin{frame}
 \frametitle{Abstract shape, energy range: 5 kcal/mol}  
@@ -154,7 +153,6 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
   \includegraphics[scale=0.6]{images/shapes_example.jpg} 
 \end{figure}
 \end{frame}
-
 
 
 % PART 3: helices indices
@@ -274,10 +272,14 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \begin{frame}
 \frametitle{Possible problem}
   \scriptsize
-  Although the helices space grows considerably slower than structure space, but
-  it is still exponential
+  %Although the helices space grows considerably slower than structure space, but
+  %it is still exponential
+
+  %Growth of structure, helix and shape space
+  Although both the abstract shapes and helices indices space grow exponentially with sequence length and suboptimal energy range, 
+  the helices indices space grows considerably faster.
   \normalsize
-  \begin{block}{\tiny Growth of structure, helix and shape space}
+  \begin{block}{\tiny comparison of helices indices space with abstract shapes space}
   %\begin{figure}
     \centering
 	\begin{tikzpicture}[scale=0.7]
@@ -290,12 +292,12 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
          legend pos= north west]
      
         
-         \addplot+[only marks,mark=+]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
-         \addlegendentry{Structures}         
-         \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
-         \addlegendentry{$0.33 \cdot x -3.24$}
+         %\addplot+[only marks,mark=+]
+         %table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
+         %\addlegendentry{Structures}         
+         %\addplot table[x=X,y={create col/linear
+         %regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
+         %\addlegendentry{$0.33 \cdot x -3.24$}
          
          
          \addplot+[only marks,mark=-]
@@ -331,7 +333,7 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
   One of the solution: we limit the helices space by setting an energy range on
   it
   \normalsize
-  \begin{block}{\tiny Growth of helix space}     
+  \begin{block}{\tiny comparison of helices indices space setting different energy ranges}     
     \centering
 	\begin{tikzpicture}[scale=0.7]
 		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
@@ -390,7 +392,7 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 \end{frame}
 
 
-% PART 4: outlook
+% PART 4: outlook   
 % frame 18
 \begin{frame}
 \frametitle{Outlook: Designing RNA class predictors}
