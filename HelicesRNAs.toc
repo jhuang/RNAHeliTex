@@ -1,4 +1,6 @@
 \beamer@endinputifotherversion {3.07pt}
 \select@language {english}
-\beamer@sectionintoc {1}{RNA folding by free energy minimization}{4}{0}{1}
-\beamer@sectionintoc {2}{develop a new structure abstraction}{11}{0}{2}
+\beamer@sectionintoc {1}{RNA secondary structure elements and classical algorithm}{3}{0}{1}
+\beamer@sectionintoc {2}{abstract shapes}{9}{0}{2}
+\beamer@sectionintoc {3}{helices indices}{11}{0}{3}
+\beamer@sectionintoc {4}{outlook}{18}{0}{4}

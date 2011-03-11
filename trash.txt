@@ -484,3 +484,19 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
     to experimental results.
     But the number of suboptimal structures grows exponentially with the energy
     range considered.
+
+
+
+
+   \begin{block}{\small Drawback example 1 of abstract shape}
+   \begin{figure}
+     \includegraphics[scale=0.55]{images/drawback_1.jpg} 
+   \end{figure}
+   \end{block}
+
+%, as possible braching points, are structurally important    
+ %are the main structural contributors 
+
+
+\subject{Talk based on Giegerich, Voss, Rehmsmeier (2004) ''Abstract
+Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}

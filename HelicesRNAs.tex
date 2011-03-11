@@ -35,10 +35,8 @@
   AG Experimentelle Bioinformatik (Cyanolab)\\
   Institut f\"ur Biologie III\\
   Universit\"at Freiburg}
-\subject{Talk based on Giegerich, Voss, Rehmsmeier (2004) ''Abstract
-Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
   
-  
+
 
 
 \begin{document}
@@ -57,7 +55,8 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-% PART 1: RNA secondary structure elements and Zuker algorithm
+% PART 1: RNA secondary structure elements and classical algorithm
+\section{RNA secondary structure elements and classical algorithm}
 % frame 3  
 \begin{frame}
 \frametitle{Secondary structure elements of RNA}  
@@ -69,8 +68,6 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 
 
 % frame 4
-\section{RNA folding by free energy minimization}
-\subsection{}
 \begin{frame}
 \frametitle{\large Classical secondary structure algorithms (Zuker 1981)}
   \begin{block}{facts about Zuker algorithm}
@@ -132,16 +129,21 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 
 
 % PART 2: abstract shapes
+\section{abstract shapes}
 % frame 9
 \begin{frame}
 \frametitle{Introducing abstract shapes}
-    Solution: Use abstract shapes to describe a set of structures.
+    Solution: further classify secondary structures within the lower energy range with different definition.
     \begin{itemize} 
+    \item abstract shapes is one approach in this direction
     \item developed by Giegerich and Voss
-    \item An abstract shape represents a class of similar structures sharing a
-    common pattern of helix nesting and adjacency.
-    \item ''Abstract'' since we do not care about all details of the structures.
-    \item Each shape class has a representative structure called shrep (with minimum folding energy).
+    \item intial idea:
+    \begin{enumerate}
+      \item the user is usually only interested in structures that show fundamental differences
+      \item small changes, such as additional base pairs or changing bulge loops are of minor significance
+    \end{enumerate}
+    \item central to this approach: do not care about all details of the structures and abstract from lengths of structural elements or from some elements in total 
+    \item each shape has a representative structure called shrep (with minimum free energy within the shape class)
     \end{itemize}
 \end{frame}
 
@@ -156,24 +158,18 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 
 
 % PART 3: helices indices
+\section{helices indices}
 % frame 11
-\section{develop a new structure abstraction}
 \frametitle{Drawback of abstract shape}
-\subsection{}
 \begin{frame}
 \frametitle{}
    \begin{block}{\small Drawback of abstract shape}
    \begin{itemize} 
-   \item The major drawback of abstract shape analysis is the position
+   \item The major drawback of abstract shapes analysis is the position
    independence of the abstraction
    \end{itemize}
    \end{block}
-   \begin{block}{\small Drawback example 1 of abstract shape}
-   \begin{figure}
-     \includegraphics[scale=0.55]{images/drawback_1.jpg} 
-   \end{figure}
-   \end{block}
-   \begin{block}{\small Drawback example 2 of abstract shape}
+   \begin{block}{\small Drawback example of abstract shapes}
    \begin{figure}
      \includegraphics[scale=0.55]{images/drawback_2.jpg} 
    \end{figure}
@@ -183,26 +179,26 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 
 % frame 12
 \begin{frame}
-\frametitle{develop a new structure abstraction}
-    The straightforward idea to overcome the position independence of the
-    current available shape abstractions is
-    \begin{block}{the position of which secondary structure elements will be
-    tracked}
+\frametitle{develop a new structure abstraction: helices indices}
+    The straightforward idea to overcome the position independence of the current available shape abstractions is to develop a new structure abstraction that includes the information of positions of helices
+    \begin{block}{Which element we should take to record the positions?}
     \begin{itemize} 
-    \item helical regions of hairpin loop
-    \item helical regions of multiloops %, as possible braching points, are structurally important    
-    \item helical regions of stacked pairs, bulge and internal loops %are the main structural contributors 
+    \item hairpin loop
+    \item multiloop
+    \item bulge or internal loops
+    \item any combinations of them
     \end{itemize}
     \end{block}
-    \begin{block}{which positions of the vordefined structure element will be tracked}
+    \begin{block}{Which position of elements we should take?}
     \begin{itemize} 
     \item i
     \item j   
-    \item (i,j)
-    \item i+j/2
+    \item i,j
+    \item (i+j)/2
     \end{itemize}    
     \end{block}
 \end{frame}
+
 
 % frame 13
 % frame landscape
@@ -392,17 +388,19 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 \end{frame}
 
 
-% PART 4: outlook   
+% PART 4: outlook  
+\section{outlook} 
 % frame 18
 \begin{frame}
-\frametitle{Outlook: Designing RNA class predictors}
+\frametitle{Outlook}
     \begin{itemize} 
-    \item Development of a new structure abstraction (helices index)
-    \item Implementation of an algorithm based on the structure abstraction
-    \item Evaluating the algorithm
-    \item Designing RNA class predictors.
+    \item develop a new structure abstraction (helices indices)
+    \item implement a software with the ADP framework in C++ programming language based on the idea
+    \item evaluate the algorithm comparing with other programs
+    \item design a RNA class predictors
     \end{itemize}
 \end{frame}
+
 
 % frame 19
 \begin{frame}

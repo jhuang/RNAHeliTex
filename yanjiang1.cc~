@@ -56,9 +56,7 @@ energy and energy of the first sub-optimal confirmation is enough big.
 - but it caused another problem, namely the number of suboptimal structures grows exponentially with the size of the energy range,
   further more, the runtime grows also expnentially.
 - The second point is if no additonal clues are given, we don't know which suboptimal structure are better than the other one.
-
-
-
+- How can we do?
 
 9. 
 - One of the solution is we can further classify secondary structures within the lower energy range with different definition.
@@ -71,7 +69,7 @@ energy and energy of the first sub-optimal confirmation is enough big.
   - Small changes, such as additional base pairs or changing bulge loops are of minor significance. 
 - Central to this approach is we do not care about all details of the structures and abstract from lengths of structural elements or from some elements in total, 
   for example in abstract shape type 5, all loops excepts for internal loop and multiloop are abstracted.
-- each shape has a representative structure called shrep. It is the minimum folding energy within the class.    
+- each shape has a representative structure called shrep. It is structrue with the minimum free energy within the shape class.    
 
 
 10. 
@@ -100,7 +98,7 @@ energy and energy of the first sub-optimal confirmation is enough big.
 
 
 12. 
-- for the reason we will develop a new structure abstraction that includes the information of positions of helices. 
+- for the reason we will develop a new structure abstraction that includes the information of positions of helices, namely helices indices.
 - to develop it, 2 things have to been considered,
 - the first thing is which element we should take to record the positions.
 - the second point is which position of elements we should take. 
@@ -163,7 +161,7 @@ energy and energy of the first sub-optimal confirmation is enough big.
 
 18. 
 - in last slide, I will give an outlook of the project.
-- at first, we will develop the new abstraction idea, namely the helices indices that I just explained.
+- at first, we will develop a new abstraction, namely the helices indices that I just explained.
 - after that, the idea will be implemented with the ADP framework in C++ programming language,
 - as next, the implemented software will be evaluated by comparing with another program.
 - because different RNA have different energy landscape, 
