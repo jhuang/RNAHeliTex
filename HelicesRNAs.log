@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.3.3)  10 MAR 2011 12:12
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.3.3)  11 MAR 2011 12:00
 entering extended mode
  %&-line parsing enabled.
 **HelicesRNAs.tex
@@ -931,8 +931,7 @@ Package: beamerouterthememiniframes 2007/01/28  (rcs-revision 1.8)
 )
 (/usr/share/texmf/tex/latex/beamer/themes/font/beamerfontthemestructurebold.sty
 Package: beamerfontthemestructurebold 2007/01/28  (rcs-revision 1.3)
-)
-No file HelicesRNAs.aux.
+) (./HelicesRNAs.aux)
 \openout1 = `HelicesRNAs.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
@@ -951,7 +950,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
 LaTeX Font Info:    ... okay on input line 44.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 44.
-(/usr/share/texmf/tex/latex/base/ts1cmr.fd
+ (/usr/share/texmf/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 44.
@@ -999,6 +998,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 LaTeX Info: Redefining \ref on input line 44.
 LaTeX Info: Redefining \pageref on input line 44.
+ (./HelicesRNAs.out)
+(./HelicesRNAs.out)
 \@outlinefile=\write7
 \openout7 = `HelicesRNAs.out'.
 
@@ -1049,8 +1050,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (/usr/share/texmf/tex/latex/translator/translator-theorem-dictionary-English.di
 ct
 Dictionary: translator-theorem-dictionary, Language: English 
-)
-No file HelicesRNAs.nav.
+) (./HelicesRNAs.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <4> not available
 (Font)              size <5> substituted on input line 46.
@@ -1059,47 +1059,47 @@ LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <4> not available
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 46.
 
-[1
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+] [2
 
 ]
-<images/RNA_components.jpg, id=78, 821.0675pt x 543.02875pt>
+<images/RNA_components.jpg, id=165, 821.0675pt x 543.02875pt>
 File: images/RNA_components.jpg Graphic file (type jpg)
 
 <use images/RNA_components.jpg>
-Overfull \hbox (21.13132pt too wide) in paragraph at lines 66--66
+Overfull \hbox (4.71902pt too wide) in paragraph at lines 68--68
  [] 
  []
 
 
-Overfull \vbox (33.90991pt too high) detected at line 66
+Overfull \vbox (27.59622pt too high) detected at line 68
  []
 
 [3
 
  <./images/RNA_components.jpg>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+LaTeX Font Info:    Try loading font information for U+msa on input line 90.
  (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+LaTeX Font Info:    Try loading font information for U+msb on input line 90.
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [4
 
 ]
-<images/mfe_example.pdf, id=138, 722.7pt x 542.025pt>
+<images/mfe_example.pdf, id=257, 722.7pt x 542.025pt>
 File: images/mfe_example.pdf Graphic file (type pdf)
 
 <use images/mfe_example.pdf> [5
 
  <./images/mfe_example.pdf>]
-<images/energy_landscape_simple.jpg, id=171, 811.03pt x 398.48875pt>
+<images/energy_landscape_simple.jpg, id=307, 811.03pt x 398.48875pt>
 File: images/energy_landscape_simple.jpg Graphic file (type jpg)
 
 <use images/energy_landscape_simple.jpg>
-Overfull \hbox (17.11638pt too wide) in paragraph at lines 105--105
+Overfull \hbox (17.11638pt too wide) in paragraph at lines 108--108
  [] 
  []
 
@@ -1108,15 +1108,20 @@ Overfull \hbox (17.11638pt too wide) in paragraph at lines 105--105
  <./images/energy_landscape_simple.jpg>] [7
 
 ]
-<images/Yeast.png, id=223, 475.17525pt x 428.19975pt>
-File: images/Yeast.png Graphic file (type png)
- <use images/Yeast.png>
+<images/energy_landscape_area.jpg, id=393, 811.03pt x 398.48875pt>
+File: images/energy_landscape_area.jpg Graphic file (type jpg)
+
+<use images/energy_landscape_area.jpg>
+Overfull \hbox (17.11638pt too wide) in paragraph at lines 131--131
+ [] 
+ []
+
 [8
 
- <./images/Yeast.png>] [9
+ <./images/energy_landscape_area.jpg>] [9
 
 ]
-<images/shapes_example.jpg, id=276, 550.30594pt x 297.36093pt>
+<images/shapes_example.jpg, id=478, 550.30594pt x 297.36093pt>
 File: images/shapes_example.jpg Graphic file (type jpg)
 
 <use images/shapes_example.jpg>
@@ -1127,18 +1132,18 @@ Overfull \hbox (22.89624pt too wide) in paragraph at lines 156--156
 [10
 
  <./images/shapes_example.jpg (PNG copy)>]
-<images/drawback_1.jpg, id=302, 536.75531pt x 68.50594pt>
+<images/drawback_1.jpg, id=521, 536.75531pt x 68.50594pt>
 File: images/drawback_1.jpg Graphic file (type jpg)
 
 <use images/drawback_1.jpg>
-<images/drawback_2.jpg, id=303, 550.30594pt x 74.52844pt>
+<images/drawback_2.jpg, id=522, 550.30594pt x 74.52844pt>
 File: images/drawback_2.jpg Graphic file (type jpg)
 
 <use images/drawback_2.jpg> [11
 
  <./images/drawback_1.jpg> <./images/drawback_2.jpg>] [12
 
-] <images/helices_position.jpg, id=356, 446.41782pt x 317.68687pt>
+] <images/helices_position.jpg, id=607, 446.41782pt x 317.68687pt>
 File: images/helices_position.jpg Graphic file (type jpg)
 
 <use images/helices_position.jpg> [13
@@ -1150,11 +1155,11 @@ File: images/helices_position.jpg Graphic file (type jpg)
 (./HelicesRNAs.vrb) [14
 
 ]
-<images/energy_barrier.jpg, id=409, 792.9625pt x 398.48875pt>
+<images/energy_barrier.jpg, id=694, 792.9625pt x 398.48875pt>
 File: images/energy_barrier.jpg Graphic file (type jpg)
 
 <use images/energy_barrier.jpg>
-Overfull \hbox (9.88951pt too wide) in paragraph at lines 268--268
+Overfull \hbox (9.88951pt too wide) in paragraph at lines 271--271
  [] 
  []
 
@@ -1219,10 +1224,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 21765 strings out of 493848
- 468237 string characters out of 3155815
- 1210525 words of memory out of 3500000
- 24438 multiletter control sequences out of 15000+200000
+ 21875 strings out of 493848
+ 470258 string characters out of 3155815
+ 1225073 words of memory out of 3500000
+ 24541 multiletter control sequences out of 15000+200000
  13063 words of font info for 49 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  55i,21n,95p,673b,2022s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1237,9 +1242,9 @@ texmf/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf/fonts/type1/p
 ublic/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cm
 sy7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/
 texmf/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on HelicesRNAs.pdf (19 pages, 529132 bytes).
+Output written on HelicesRNAs.pdf (19 pages, 593144 bytes).
 PDF statistics:
- 599 PDF objects out of 1000 (max. 8388607)
+ 970 PDF objects out of 1000 (max. 8388607)
  43 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 

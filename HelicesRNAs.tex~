@@ -49,45 +49,48 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \begin{frame}
 \frametitle{Outline}
    \begin{itemize}
-   \item an overview of RNA secondary structure domains and a classical RNA secondary structure prediction algorithm
+   \item an overview of RNA secondary structure elements and a classical RNA secondary structure prediction algorithm
    \item introducing concept of abstract shapes  
    \item basic idea about the helices indices
    \item outlook            
    \end{itemize}
 \end{frame}
 
-  
+
+% PART 1: RNA secondary structure elements and Zuker algorithm
+% frame 3  
 \begin{frame}
 \frametitle{Secondary structure elements of RNA}  
 \begin{figure}
-  \includegraphics[scale=0.4]{images/RNA_components.jpg} 
+  \includegraphics[scale=0.38]{images/RNA_components.jpg} 
   \caption{Structural elements}
 \end{figure}
 \end{frame}
 
 
+% frame 4
 \section{RNA folding by free energy minimization}
 \subsection{}
 \begin{frame}
 \frametitle{\large Classical secondary structure algorithms (Zuker 1981)}
-  \begin{block}{Simplifying Assumption for Structure Prediction}
-    \begin{itemize}
-    \item There are no knots (base pairs never cross).
-    \end{itemize} 
-  \end{block}
   \begin{block}{facts about Zuker algorithm}
     \begin{itemize}
     \item first described by Zuker and Stiegler in 1981
-    \item idea: every secondary structure can be attached with an energy value according to some rules,
-          the algorithm computes with a given RNA sequence the structure with the minimum free energy.
+    \item assumption: There are no knots (base pairs never cross).
+    \item basic idea: 
+    \begin{enumerate}
+      \item a RNA sequence can be folded into many different secondary structure
+      \item for every secondary structure, we can calculate a free energy value
+      \item after that, the algorithm choose the structure with the minimum free energy
+    \end{enumerate}
     \item the runtime is $O(n^3)$
-    \item can get only one structure
+    \item can get only one solution
     \end{itemize}
   \end{block}
 \end{frame}
 
 
-% frame 4
+% frame 5
 \begin{frame}
 \frametitle{Free energy computation example}  
 \begin{figure}
@@ -96,7 +99,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-% frame 5
+% frame 6
 \begin{frame}
 \frametitle{energy landscape}
 \begin{figure}
@@ -105,34 +108,31 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-% frame 6
+% frame 7  
 \begin{frame}
 \frametitle{Suboptimal structures}
   %\begin{block}
-    But the ''true'' structure is not always the one with the lowest
-    predicted free energy.
-    So what to do?
-    \begin{itemize} 
-    \item Enumerate suboptimal structures within a given energy range R.
-    \item Hope to find a structure fulfilling your expectation or coming close
-    to experimental results.
-    \end{itemize}
-    But the number of suboptimal structures grows exponentially with the energy
-    range considered.
+  \begin{itemize} 
+    \item but the ''true'' structure is not always the one with the lowest predicted free energy.
+    \item but it is not far away from the mfe and it is normally a local minimum
+    \item one of solution: enumerate all suboptimal structures within a given energy range
+    \item but the number of suboptimal structures grows exponentially with the energy range considered.
+  \end{itemize}
   %\end{block}   
 \end{frame}
 
 
-% frame 7
+% frame 8
 \begin{frame}
-\frametitle{energy landscape}  
+\frametitle{energy landscape setting a range}  
 \begin{figure}
-  \includegraphics[scale=0.5]{images/Yeast.png} 
+  \includegraphics[scale=0.4]{images/energy_landscape_area.jpg} 
 \end{figure}
 \end{frame}
 
 
-% frame 6
+% PART 2: abstract shapes
+% frame 9
 \begin{frame}
 \frametitle{Introducing abstract shapes}
     Solution: Use abstract shapes to describe a set of structures.
@@ -156,6 +156,8 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
+
+% PART 3: helices indices
 % frame 10
 \section{develop a new structure abstraction}
 \frametitle{Drawback of abstract shape}
@@ -181,12 +183,12 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 
-
+% frame 11
 \begin{frame}
 \frametitle{develop a new structure abstraction}
     The straightforward idea to overcome the position independence of the
     current available shape abstractions is
-    \begin{block}{the position of which secondary structure domains will be
+    \begin{block}{the position of which secondary structure elements will be
     tracked}
     \begin{itemize} 
     \item helical regions of hairpin loop
@@ -194,7 +196,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     \item helical regions of stacked pairs, bulge and internal loops %are the main structural contributors 
     \end{itemize}
     \end{block}
-    \begin{block}{which positions of the vordefined structure domain will be tracked}
+    \begin{block}{which positions of the vordefined structure element will be tracked}
     \begin{itemize} 
     \item i
     \item j   
@@ -204,6 +206,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
     \end{block}
 \end{frame}
 
+% frame 12
 % frame landscape
 \begin{frame}
 \frametitle{helices positions example}  
@@ -215,7 +218,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{figure}
 \end{frame}
 
-% frame 11
+% frame 13
 \begin{frame}[fragile]
   Output from the first trial version of helices indices
   \begin{block}{\tiny Helices shape, Energy range: 5 kcal/mol}
@@ -259,7 +262,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{frame}
 
 \normalsize
-% frame landscape
+% frame 15: energy barrier
 \begin{frame}
 \frametitle{energy barrier}  
 \begin{figure}
@@ -267,7 +270,7 @@ Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
 \end{figure}
 \end{frame}
 
-
+% frame 16
 \begin{frame}
 \frametitle{Possible problem}
   \scriptsize
@@ -321,7 +324,7 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
   \end{block}
 \end{frame}
 
-
+% frame 17
 \begin{frame}
 \frametitle{Solution of possible problem}
   \small
@@ -387,6 +390,8 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 \end{frame}
 
 
+% PART 4: outlook
+% frame 18
 \begin{frame}
 \frametitle{Outlook: Designing RNA class predictors}
     \begin{itemize} 
@@ -397,6 +402,7 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
     \end{itemize}
 \end{frame}
 
+% frame 19
 \begin{frame}
 \frametitle{End}
    \begin{itemize} 

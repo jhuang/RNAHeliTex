@@ -6,64 +6,55 @@ If you have some questions during my presentation, feel free to interrupt me.
 
 2. 
 I've divided my presentation into 4 parts
-- in the first part, I will give an overview of RNA secondary structure elements and introduce a classical RNA secondary structure prediction algorithm
-- because the concept of "helices indices of RNAs" is based on the concept of "abstract shapes", so I will introduce 
+- in the first part, I will talk about the basic secondary structure elements of RNA and introduce a classical RNA secondary structure prediction algorithm
+- because the concept of "helices indices of RNAs" is based on the concept of "abstract shapes", that was developed by Bjoern, so I will introduce 
 the concept of "abstract shapes" in the 2nd part.
-- give the basic idea about the helices indices. The idea is from Bjoern.
-In this part, I will also point out one serious problem we might encounter
+- give the basic idea about the helices indices. 
 - in the last part, I will give an outlook of the project
 
 3. 
-- In this slide, I will talk about the basic secondary structural elements of RNA.
-- As the figure showed, RNA is composed of different secondary structural elements, 
-The figure shows an RNA secondary structure graph. Unpaired positions are marked by ticks.
-- Typically, secondary RNA structure contains single-stranded regions, hairpin loop, bulge loop, internal loop, multiloops,
-stacking regions and dangling end. Among these RNA secondary structure elements, all double stranded regions are also called
-as helical regions, for example this part and this part. The concept is very important, because we will develop a new methods
+- In this slide, I will talk about the basic secondary structural elements of RNA,
+- As the figure showed, RNA is composed of different secondary structural elements,  like 6 种.
+- Among them, dangling end and base stacking are energy favorable elements, 
+- at the same time, such energy favorable elements lead to formation of energy unfavorable elments like 4 种.
+- all double stranded regions are also called as as 'helical regions', for example this part and this part. The concept is very important, because we will develop a new methods
 that based on the helices regions. I will explain it later in this presentation for more details.
 
 4. 
 - In this slide, I will introduce the classic algorithms for RNA secondary structure prediction.
-  namely RNA folding by free energy minimization. The algorithm was first described by Zuker and Stiegler in 1981.
+  namely Zuker algorithm. The algorithm was first described by Zuker and Stiegler in 1981.
 - In this algorithm, we have to assume one condition, namely we get away the knots from the calculation.
-  why we can get away [exclude] the knots from the secondary structure calculation, 2 Reasons are for it.
-  - The first one is it simplifies our problem, 
-  - the second reason is that secondary structures are used to infer three-dimensional[tertiary] structures,
-  and knots can be inferred at that stage as well.
-
-- A given RNA sequence can be folded due to many possible combinations of base pairings into exponentially 
-  many different secondary structures.
-- every secondary structure can be attached with an energy value according to some rules. 
-- Among the basic secondary structural elements,
-  only the base stacking regions and dangling end stabilize the structure, the other elements for example hairpin loop, bulge loop,
-  internal loop and multiloops destalibize the structure.
-- the algorithm computes with a given RNA sequence the structure with the minimum free energy
-- The runtime of the algorithms is O(N3) (N is the number of nucleotides in the sequence),
-- From this argorithm, we can get only one structure
+  The reason why we can get away the knots from the calculation is the calculation result of secondary structure prediction are used to infer
+  3-dimensional structures and knots can be inferred at this stage as well.
+- the basic idea is sequence can be folded into many different secondary structures.
+                    furthermore, we can calculate for every secondary structure a clear energy value according to the free enery model.
+                    after that, the algorithm choose the structure with the minimum free energy.
+- The runtime of the algorithms is O(n3) where n is the length of sequence,
+- From this argorithm, we can get only one solution.
 
 5. 
 - To better understand it, I prepared a small example,
-   in the example, the secondary stucture consists of a hairpin loop, here is it, here is a base stacking element, here is a bulge loop,
-   here is again a base stacking, at the bottom there is a dangling end. As I said last slide, only the base stacking stabilize the
-   structure, therefore they have minus value and in contrast, all loops destabilize the structure, therefore they have positive value
-- after adding all the separate elements, we get an energy value for the structure. that also means, every secondary structure has its
-  only own value.
-  A sequence can fold in many different secondary structure, if we draw all the energy value of many different secondary structure that are derived from the same sequence in a graph, 
-  we can get a landscape.
+- as the figure shows, the secondary structure consists of a hairpin loop, dangling end, 2 base stacking, a bulge loop,
+- as I said earlier, the hairpin loop and  dangling end are energy favorable, the have the negative free energy, and hairpin loop and
+  bulge loop are energy unfavorable, they have positive free energy.
+- after addition of all elements, we get the energy value -4.6 kcal/mol.
+  In Zuker algorithm, we calculate the free energy for every secondary structure, and after comparing it computes the minimum.
 
 6. [curve]
-- this slide is showing a simple energy landscape about a secondary structure space, the x-axis means different conformations,
-the y-axis means the corresponding energy, if the RNA don't have conformational switch, normally the energy difference between minimum free
-energy and the first sub-optimal confirmation enough big. or the barriers between them is enough high.
+- if we draw all the energy value of secondary structure corresponding to the conformations, we get a landscape. 
+- as the figure showed, the x-axis means conformations, the y-axis means free energy, if the RNA don't have conformational switch, normally the energy difference between minimum free
+energy and energy of the first sub-optimal confirmation is enough big.
 
 7. 
-1. As I just said, The Zuker algorithm can only find the mfe structure, aber in practice, 
-the native structure is not always the one with the lowest predicted free energy [why], the classical example is for some tRNAs the computed mfe-structure
-is not the expected “cloverleaf” but a single long hairpin. but the energy of the native structure should not be too far away
-from the predicted minimum free energy, so if we define a range and compute all suboptimal structures within the range, it is possible
-to find the native structure,
+- As I just said, The Zuker algorithm can only find the mfe structure, 
+aber in practice, the native structure is not always the one with the lowest predicted free energy, but the energy of the native structure should not be too far away
+from the predicted minimum free energy, and it is normally a local minimum.
+- what can we do? one of solutions is we we define a range and enumerate all suboptimal 照 读。 it is possible to find the native structure,
 
 8. 
+- the figure shows us the solution of last slide, we set a linie in the energy landscape and calculate all suboptimal structure under the linie.
+- but it caused another problem, namely the number of suboptimal structures grows exponentially with the size of the energy range,
+
 So some researcher developed further tool to overcome the problem, for example, the tool RNAsubopt from the Vienna RNA package. It is designed to computer all secondary structures
 whose free energy is close to the global minimum free energy within a given energy range. The method is guaranteed to not to miss any structure
 whose energy is close to the global minimum free energy.
@@ -349,4 +340,51 @@ some problem are still there, that is, in the minimum free energy model
 
 this is a more extensive energy landscape as what I showed early.
 The landscpae descriped the idea that is implemented in
+
+
+
+11.03.2011
+The idea is from Bjoern.
+In this part, I will also point out one serious problem we might encounter
+
+
+The figure shows an RNA secondary structure graph. Unpaired positions are marked by ticks.
+- Typically, secondary RNA structure contains single-stranded regions, hairpin loop, bulge loop, internal loop, multiloops,
+stacking regions and dangling end. Among these RNA secondary structure elements, all double stranded regions are also called
+
+ RNA folding by free energy minimization.
+ 
+ 
+  why we can get away [exclude] the knots from the secondary structure calculation, 2 Reasons are for it.
+  - The first one is it simplifies our problem, 
+  - the second reason is that secondary structures are used to infer three-dimensional[tertiary] structures,
+  and knots can be inferred at that stage as well.
+
+
+- A given RNA sequence can be folded due to many possible combinations of base pairings into exponentially 
+  many different secondary structures.
+- every secondary structure can be attached with an energy value according to some rules. 
+- Among the basic secondary structural elements,
+  only the base stacking regions and dangling end stabilize the structure, the other elements for example hairpin loop, bulge loop,
+  internal loop and multiloops destalibize the structure.
+- the algorithm computes with a given RNA sequence the structure with the minimum free energy
+
+   in the example, the secondary stucture consists of a hairpin loop, here is it, here is a base stacking element, here is a bulge loop,
+   here is again a base stacking, at the bottom there is a dangling end. As I said last slide, only the base stacking stabilize the
+   structure, therefore they have minus value and in contrast, all loops destabilize the structure, therefore they have positive value
+   
+  adding all the separate elements, we get an energy value for the structure. that also means, every secondary structure has its
+  only own value.
+  
+  A sequence can fold in many different secondary structure, 
+  
+  that are derived from the same sequence in a graph, 
+  we can get a landscape.
+  
+   or the barriers between them is enough high.
+   
+   the classical example is for some tRNAs the computed mfe-structure
+is not the expected “cloverleaf” but a single long hairpin. 
+
+- so if we define a range and compute all suboptimal structures within the range, 
  */

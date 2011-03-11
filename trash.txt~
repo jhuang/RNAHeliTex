@@ -478,9 +478,3 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 
             every secondary structure can be attached with an energy value according to some rules,
           the algorithm computes with a given RNA sequence the structure with the minimum free energy.
-
-
-    \item Hope to find a structure fulfilling your expectation or coming close
-    to experimental results.
-    But the number of suboptimal structures grows exponentially with the energy
-    range considered.
