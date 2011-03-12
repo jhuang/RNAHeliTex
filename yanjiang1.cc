@@ -1,8 +1,8 @@
-/*
+
 1. 
-Today I will talk about my project.
-The topic of my project is about development of a new structure abstraction, we call it as "helices indices of RNAs"
-If you have some questions during my presentation, feel free to interrupt me.
+- Today I will talk about my project.
+- The topic of my project is about development of a new structure abstraction, we call it as "helices indices of RNAs"
+- If you have some questions during my presentation, feel free to interrupt me.
 
 2. 
 I've divided my presentation into 4 parts
@@ -14,159 +14,136 @@ the concept of "abstract shapes" in the 2nd part.
 
 3. 
 - In this slide, I will talk about the basic secondary structural elements of RNA,
-- As the figure showed, RNA is composed of different secondary structural elements,  like 6 种.
-- Among them, dangling end and base stacking are energy favorable elements, 
-- at the same time, such energy favorable elements lead to formation of energy unfavorable elments like 4 种.
-- all double stranded regions are also called as as 'helical regions', for example this part and this part. The concept is very important, because we will develop a new methods
-that based on the helices regions. I will explain it later in this presentation for more details.
+- As the figure showed, RNA is composed of 2 kinds of elements, like 6 种.
+  the first kind is energy favorable part, it includes dangling end and base stacking
+- such energy favorable elements lead to formation of energy unfavorable elments, they are 4 种.
+- all double stranded regions are also called as as 'helices', it is always related with a loop type. 
+  for example we call this part as helics of hairpin loop, this part as helices of multiloop, this part as helices of bulge loop, this part as helices of internal loop. 
+- the concept is very important, because we will develop a new methods
+  that based on the helices. I will explain it later in this presentation in more detail.
 
 4. 
-- In this slide, I will introduce the classic algorithms for RNA secondary structure prediction.
+- In this slide, I will introduce the classic algorithm for RNA secondary structure prediction.
   namely Zuker algorithm. The algorithm was first described by Zuker and Stiegler in 1981.
-- In this algorithm, we have to assume one condition, namely we get away the knots from the calculation.
-  The reason why we can get away the knots from the calculation is the calculation result of secondary structure prediction are used to infer
-  3-dimensional structures and knots can be inferred at this stage as well.
 - the basic idea is sequence can be folded into many different secondary structures.
-                    furthermore, we can calculate for every secondary structure a clear energy value according to the free enery model.
+                    furthermore, we can calculate for every secondary structure a unambiguous free energy value by adding the free energies of all elements of the secondary structure.
                     after that, the algorithm choose the structure with the minimum free energy.
 - The runtime of the algorithms is O(n3) where n is the length of sequence,
 - From this argorithm, we can get only one solution.
 
 5. 
 - To better understand it, I prepared a small example,
+- as I just said, in Zuker algorithm, for every secondary structure we calculate a free energy value by ...
 - as the figure shows, the secondary structure consists of a hairpin loop, dangling end, 2 base stacking, a bulge loop,
-- as I said earlier, the hairpin loop and  dangling end are energy favorable, the have the negative free energy, and hairpin loop and
-  bulge loop are energy unfavorable, they have positive free energy.
-- after addition of all elements, we get the energy value -4.6 kcal/mol.
-  In Zuker algorithm, we calculate the free energy for every secondary structure, and after comparing it computes the minimum.
+- among them, the hairpin loop and dangling end are energy favorable, the have the negative free energy, and in contrast, hairpin loop and bulge loop are energy unfavorable, they have positive free energy.
+- after addition of all elements, we get a free energy for the whole secondary structure, namely -4.6 kcal/mol.
 
-6. [curve]
-- if we draw all the energy value of secondary structure corresponding to the conformations, we get a landscape. 
-- as the figure showed, the x-axis means conformations, the y-axis means free energy, if the RNA don't have conformational switch, normally the energy difference between minimum free
-energy and energy of the first sub-optimal confirmation is enough big.
+6.
+- if we calculate free energy for every secondary structure and draw it on a graph, we get a landscape.
+- as the figure showed, the x-axis means conformations, 
+                        the y-axis means free energy, 
+  if a RNA molecule don't have conformational switch, typically, if we see it from the landscape, the energy difference between minimum free energy and energy of the first sub-optimal confirmation is enough big.
+- In Zuker algorithm, we calculate only this point.
 
 7. 
-- As I just said, The Zuker algorithm can only find the mfe structure, 
-  aber in practice, the native structure is not always the one with the lowest predicted free energy, but the energy of the native structure should not be too far away
-  from the predicted minimum free energy, and it is normally a local minimum.
-- what can we do? one of solutions is we we define a range and enumerate all suboptimal 照 读。 it is possible to find the native structure,
+- aber in practice, the native structure is not always the one 照 读...
+- what can we do to find the native structure? One of solutions is that we define a range and enumerate all suboptimal 照 读...
 
 8. 
-- the figure shows us the solution of last slide, we set a linie in the energy landscape and calculate all suboptimal structure under the linie.
-- but it caused another problem, namely the number of suboptimal structures grows exponentially with the size of the energy range,
-  further more, the runtime grows also expnentially.
-- The second point is if no additonal clues are given, we don't know which suboptimal structure are better than the other one.
-- How can we do?
+- the figure shows the idea I just explained last slide, firstly, we define a linie in the energy landscape and calculate all suboptimal structure under the linie.
+- but it caused another problem, namely the number of suboptimal structures grows exponentially with the size of the energy range.
+- How can we solve the problem?
+
+
+
 
 9. 
-- One of the solution is we can further classify secondary structures within the lower energy range with different definition.
-  If we take only few or only one representative for every class so that we can reduce the number of similar structures 
-  and the output records will be largely reduced.
-- The abstract shapes is one approach in this direction.
-- Abstract shapes is developed by Giegerich and our Bjoern.
-- intial idea: 
-  - the user is usually only interested in structures that show fundamental differences. 
-  - Small changes, such as additional base pairs or changing bulge loops are of minor significance. 
-- Central to this approach is we do not care about all details of the structures and abstract from lengths of structural elements or from some elements in total, 
+- 照读: One of the solution is further classify ...  
+       abstract shape is one solution in the direction. 
+       it was developed by ...         initial ideas ...  
+- central to this approach is ...
   for example in abstract shape type 5, all loops excepts for internal loop and multiloop are abstracted.
-- each shape has a representative structure called shrep. It is structrue with the minimum free energy within the shape class.    
-
+- each shape has a representative structure called shrep. It is the structrue with the minimum free energy within the shape class.    
 
 10. 
-- this figure shows an example output from software RNAshapes in an energy range of 5 kcal/mol above the mfe.  
-- the abstract shape type is 5
-- the picuture above is the corresponding 2D representation of the 3 records below.
-- So lets look in a bit more detail at the below part. 
-- on the left side, it is abstract shape in type 5, as I said before, shape type 5 only take helical regions of hairpin loop and multiloop into accout,
-  so for example, for the first record, we only consider the hairpin loop in the middle of the secondary structure. the helical regions of the 2 loops are represented as a pair of 
-  opening and closing square brackets.
-- in the middle part below is the classical dot-bracket representation for secondary structure, in this representation, two matching parentheses represent
-  a base pairs between the corresponding positions and a dot stands for an unpaired base.   
-- on the right side, is the mfe with the abstract shape class, namely the energy of the secondary structure in the middle part.
-- In the example, we notice, that it exists 3 abstract shape classes whose energy spans from -6.3 to -1.3 kcal/mol if we set a range energy as 5 kcal/mol.
-
+- this figure shows an output example from abstract shapes by setting an envergy range of 5 kcal/mol above the mfe.  
+- the picture above is 2 dimension representation, the picture below is the textual output.
+- we notice the 2 dimension representation and abstract shapes are very similar, if we image the first opening bracket and last closing bracket as a stem of tree. and all inner brackets pairs are branches of the trees.
+- the abstract shapes are identical as the representation above.
+- in the middle is the secondary structure of shrep within the shape class
+  on the right side is the free energy of shrep
 
 11. 
 - the abstract shape works pretty well, but one drawback is still there. namely 照读. 
-- that means, we can not track the positions of RNA secondary structure elements 
-- What is consequence?
-- the consequence is that with the model, it is impossible to set up relationships between different shapes, because the mapping might be ambiguous.
-- For example in the figure, abstract shape above is one square brackets, abstract shape below is 2 square brackets, Although the second abstract shape 
-  looks like doubled as the first one, but we can't set up correct relations based on the shape information, because the both secondary structures 
-  composed of totally different helices.
-- the drawback make the current implementation of shape abstraction unsuitable for the analysis of folding landscapes in a detailed fashion.
+- in other words, it doesn't contain any information about the position in abstract shapes. 
+- What is consequence of the drawback?
+- To explain the drawback, I prepared an example, as the figure shows, although the abstract shape above and below are identical, but position of the hairpin loop are totally different. 
+- the drawback make 照读...
+
+
+
 
 
 12. 
-- for the reason we will develop a new structure abstraction that includes the information of positions of helices, namely helices indices.
-- to develop it, 2 things have to been considered,
-- the first thing is which element we should take to record the positions.
-- the second point is which position of elements we should take. 
-- for the first point, we have 4 candidate: hairpin loop, multiloop, bulge or internal loops and any combinations of them.
-  if we choose a very less abstracted of secondary component, for example if we only track the hairpin position,
-  the advantage is the output records is relatively less and the program will run faster.
-  The disadvantage is such simplification will loses the accuracy because it ignores some detailed information.
-- for the second point, we have also 4 candidates to track to the positions.  
-  i means the beginning postion of the helices,
-  j means the end position of helices,
-  the combination i,j means we record both beginning position and end positon of the helices 
-  i+j/2 means we record the central position of base pair.
-  we consider the central positions models have some advantages over the other, because in this model we need
-  only storage one number for every loop but it incorporate the information of both positions
+- for the reason we will develop a new structure abstraction namely helices indices. It includes the information of positions of helices.
+- to develop it, 2 things have to been decided,
+- the first thing is Which secondary structure element should be recorded?
+- we have 4 candidate ...
+- the second point is which position of this element should be recorded?
+- we have also 4 candidates, 
+  i is first position of helix, j is last position of helix, 
+  we can also record the both positions at the same time or the central position of them.
 
 13. 
 - To better understand it, I prepared a small example,
-- In this example, we abstract from multiloop, bulge loop and internal loop. We only consider hairpin loop and use the central positions.
-- In addition, we take the central position to record these loops.
-- So as the figure showed, the structure is composed of 2 hairpin loops which are closed at the position (i,j) and (k,l).
-  The position of i is 8, j is 13, k is 35 and l is 41, so the central position of the first hairpin loop is 10.5 and the second one is
-  38, Thus, this structure would be abstracted to [10.5, 38].
+- In this example,  We record only hairpin loop and use the central position 
+- So as the figure showed, the structure is composed of 2 helices, namely this one and this one. 
+  because we abstract from the bulge loop, so we don't consider this part.
+- the position of i is 8, j is 13, i+j/2 is 10.5, similarly, k is 35 and l is 41, and k+l/2 is 38. Therefore, this structure would be abstracted to [10.5, 38].
 
 14. 
-- In this slide, I will show the first test result on a test RNA sequence. 
-- In this example, we take the multiloop and hairpin loop into account and use the central position.
-- the most interesting point from the result is, the 2 conformations with helix index 27 and 38, appear as the first 2 results.
-  and if we search further in the list, we can find a combination of the 2 central position at the bottom of the list, namely the records here.
-- What does it mean? the solution is in the next slide.
-
+- the slide showed 照读
+- in this example, we record multiloop and hairpin loop and use the central position
+- the most interesting information from it is 3 records that are marked with asterisk
+- on the left side, it is the free energy of shrep, namely this record, this record and this record
+  in the middle, it is the secondary structure of the shrep
+  on the right side, it is helices indices
+- if we compare the 3 records, we observe the helices indices of this record is a combination of the helices indices of the first 2 records.
+- what does it mean? ths answer is in the next slide.
 
 15. 
-- It is easy to understand, the first record is the global minimum structure and the second record is a lowest suboptimal structure.
-- They have almost the same free energy.
-- From the list last slide, a structure that combined the 2 helices exists, we can treat the structure as the saddle point.
-  If we will move from mfe structure to the lowest suboptimal structure, we have to pass the saddle point.
-  Because the free energy of all the recognized structure are clear, thus, through this simple analysis we can calculate the energy
-  barriers between the alternate structure and saddle structure. it is 8.4 kcal/mol.
+- we can observe the first record as the global minimum structure and the second record as a suboptimal structure. They have almost the same free energy.
+- furthermoare, we can observe the combination record as a saddle point in energy landscape.
+- If we will move from this point to this point, we have to pass the saddle point. Because the free energy of all the helices indices are known, therefore, we can calculate barrier energy between saddle point and mfe point easily. 
+- in our example, （返回去）, the minimum is -10.7, saddle point is -2.3, and the barrier energy is therefore 8.4 kcal/mol
+
+
+
 
 16. 
-- from this slide, I will point out one serious problem we might encounter.
-  namely although both the abstract shapes and helices indices space grow exponentially with sequence length and suboptimal energy range, 
-  the helices indices space grows considerably faster. 
-- The figure shows the comparison of helices indices space with abstract shapes space
-  The linie is regression linie of the helices indices space,
-  The linie is regression linie of the abstract shapes space,
-- We're noticing that the y-axis is exponentially defined, so it means, the steepness of the linie is the exponent of the sequence length. 
-  the number of all 2 type structures grow exponential with the sequence length
-  but the degree of steepness are different, the steeper the curve, the worse the runtime will be,
-- In practice, with a sequence length of 70 nt, the unmber of suboptimal helices structures already exceeds 1 million records.
-  and the program needs about 1 hour to calculate for 70 nt and about 30 hours to calculate for 72 nt sequence under our 32 cores super computer.
+- from this slide, I will point out one serious problem we might encountered, namely the runtime problem.
+- the figure shows 照读
+  x axis is sequence length, y axis is number of helices indices or abstract shapes
+  the linie means the helices indices space, the linie means the abstract shapes space.
+- we notice, 照读 it will cause serious calculation runtime problem. For example, it needs about 30 hours to calculate the helices indices for a 72 nt long sequence on our super computer.
 - how can we solve this problem?
 
 17. 
-- one idea is that we can set an energy range to limit the helices indices space.
+- one solution is that we can set an energy range to limit the helices indices space.
 - the figure shows the evaluation result by setting different energy ranges.
-- in the first linie, we let the energy unlimited, the exponent is the same as last slide, it is about 0.18 [how does one read it?]
-- if we set an energy range 20 kcal/mol, so the exponent of the space will be reduced to one third, it amounts to 0.12,
-- on the last curve, we're noticing, the exponent value is only 0.036. that means, the runtime grows almost as polynomial curve.
+  x axis is sequence length, y axis is number of helices indices
+  the linie means the helices indices without energy limitation
+              ...                     with a energy limit of 20 kcal/mol
+              ..                                             15, 10, 5
+- although all helices indices space grow exponentially with sequence length, but the degree of steepness are different, the stricter the limitation, the flater the linie and the better the runtime will be.
+- so if we set a strict limitation on the calculation, we will get a better runtime and solve the problem.
 
 18. 
 - in last slide, I will give an outlook of the project.
-- at first, we will develop a new structure abstraction, namely the helices indices that I just explained.
-- after that, the idea will be implemented with the ADP framework in C++ programming language,
-- as next, the implemented software will be evaluated by comparing with another program.
-- because different RNA have different energy landscape, 
-  we can classify the RNA using the information of energy barriers information that are obtained from the software developed within this project, 
-  in the last part, we will design a RNA class predictors.
+- at first, we will develop a new structure abstraction, namely the helices indices 
+- after that, the idea will be implemented based on the idea.
+- afterwards, the software will be evaluated by benchmark program
+- lastly, we will design a RNA class predictor
 
 19. 
 Thank you for your attention!
@@ -194,7 +171,10 @@ It exists a software, it can analyse the folding space completely. Only the runt
 This is also the reason why we will develop a new program because we will improve the runtime.
 
 
-
+4.
+- In this algorithm, we have to assume one condition, namely we get away the knots from the calculation.
+  The reason why we can get away the knots from the calculation is the calculation result of secondary structure prediction are used to infer
+  3-dimensional structures and knots can be inferred at this stage as well.
 
 
 
@@ -440,4 +420,62 @@ RNA. It was computed by first trival version of the program helices shape.
 
 the the different energy landscape types of different RNA classes and 
 the the different energy landscape types of different RNA classes and 
- */
+
+
+- this is step 2 of the Zuker algorithm.
+  In Zuker algorithm, we calculate the free energy for every secondary structure, and after comparing it computes the minimum.
+  
+  
+  further more, the runtime grows also expnentially.
+- The second point is if no additonal clues are given, we don't know which suboptimal structure are better than the other one.  
+
+
+- the abstract shape type is 5
+- the picuture above is the corresponding 2D representation of the 3 records below.
+- So lets look in a bit more detail at the below part. 
+- on the left side, it is abstract shape in type 5, as I said before, shape type 5 only take helical regions of hairpin loop and multiloop into accout,
+  so for example, for the first record, we only consider the hairpin loop in the middle of the secondary structure. the helical regions of the 2 loops are represented as a pair of 
+  opening and closing square brackets.
+- in the middle part below is the classical dot-bracket representation for secondary structure, in this representation, two matching parentheses represent
+  a base pairs between the corresponding positions and a dot stands for an unpaired base.   
+- on the right side, is the mfe with the abstract shape class, namely the energy of the secondary structure in the middle part.
+- In the example, we notice, that it exists 3 abstract shape classes whose energy spans from -6.3 to -1.3 kcal/mol if we set a range energy as 5 kcal/mol.
+
+
+
+- What is consequence?
+- the consequence is that with the model, it is impossible to set up relationships between different shapes, because the mapping might be ambiguous.
+- For example in the figure, abstract shape above is one square brackets, abstract shape below is 2 square brackets, Although the second abstract shape 
+  looks like doubled as the first one, but we can't set up correct relations based on the shape information, because the both secondary structures 
+  composed of totally different helices.
+  
+  
+  if we choose a very less abstracted of secondary component, for example if we only track the hairpin position,
+  the advantage is the output records is relatively less and the program will run faster.
+  The disadvantage is such simplification will loses the accuracy because it ignores some detailed information.  
+  
+  
+    the combination i,j means we record both beginning position and end positon of the helices 
+  i+j/2 means we record the central position of base pair.
+  we consider the central positions models have some advantages over the other, because in this model we need
+  only storage one number for every loop but it incorporate the information of both positions
+  
+  
+  we abstract from multiloop, bulge loop and internal loop.
+  
+  - In addition, we take the central position to record these loops.
+  
+  
+- In this slide, I will show the first test result on a test RNA sequence. 
+- In this example, we take the multiloop and hairpin loop into account and use the central position.
+- the most interesting point from the result is, the 2 conformations with helix index 27 and 38, appear as the first 2 results.
+  and if we search further in the list, we can find a combination of the 2 central position at the bottom of the list, namely the records here.
+- What does it mean? the solution is in the next slide.  
+
+
+- in the first linie, we let the energy unlimited, the exponent is the same as last slide, it is about 0.18 [how does one read it?]
+- if we set an energy range 20 kcal/mol, so the exponent of the space will be reduced to one third, it amounts to 0.12,
+- on the last curve, we're noticing, the exponent value is only 0.036. that means, the runtime grows almost as polynomial curve.
+
+because different RNA have different energy landscape, 
+  we can classify the RNA using the information of energy barriers information that are obtained from the software developed within this project, 

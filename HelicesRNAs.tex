@@ -32,9 +32,9 @@
 \date{\today}
 
 \institute[ExpBI]{\normalsize
-  AG Experimentelle Bioinformatik (Cyanolab)\\
-  Institut f\"ur Biologie III\\
-  Universit\"at Freiburg}
+Genetics \& Experimental Bioinformatics\\
+University Freiburg\\
+Institute of Biology III}
   
 
 
@@ -49,7 +49,7 @@
    \begin{itemize}
    \item an overview of RNA secondary structure elements and a classical RNA secondary structure prediction algorithm
    \item introducing concept of abstract shapes  
-   \item basic idea about the helices indices
+   \item basic ideas about the helices indices
    \item outlook            
    \end{itemize}
 \end{frame}
@@ -61,8 +61,8 @@
 \begin{frame}
 \frametitle{Secondary structure elements of RNA}  
 \begin{figure}
-  \includegraphics[scale=0.38]{images/RNA_components.jpg} 
-  \caption{Structural elements}
+  \includegraphics[scale=0.35]{images/RNA_components.jpg} 
+  \caption{Secondary structure elements of RNA, all double stranded regions are also called as ''helices''}
 \end{figure}
 \end{frame}
 
@@ -73,11 +73,10 @@
   \begin{block}{facts about Zuker algorithm}
     \begin{itemize}
     \item first described by Zuker and Stiegler in 1981
-    \item assumption: There are no knots (base pairs never cross).
     \item basic idea: 
     \begin{enumerate}
       \item a RNA sequence can be folded into many different secondary structure
-      \item for every secondary structure, we can calculate a free energy value
+      \item for every secondary structure, we can calculate a free energy
       \item after that, the algorithm choose the structure with the minimum free energy
     \end{enumerate}
     \item the runtime is $O(n^3)$
@@ -110,10 +109,9 @@
 \frametitle{Suboptimal structures}
   %\begin{block}
   \begin{itemize} 
-    \item but the ''true'' structure is not always the one with the lowest predicted free energy.
-    \item but it is not far away from the mfe and it is normally a local minimum
-    \item one of solution: enumerate all suboptimal structures within a given energy range
-    \item but the number of suboptimal structures grows exponentially with the energy range considered.
+    \item the native structure is not always the one with the lowest predicted free energy.
+    \item but it must not be far away from the mfe point and it is normally a local minimum
+    \item how to find the native structure: enumerate all suboptimal structures within a given energy range
   \end{itemize}
   %\end{block}   
 \end{frame}
@@ -125,6 +123,7 @@
 \begin{figure}
   \includegraphics[scale=0.4]{images/energy_landscape_area.jpg} 
 \end{figure}
+but the number of suboptimal structures grows exponentially with the energy range considered.
 \end{frame}
 
 
@@ -132,17 +131,17 @@
 \section{abstract shapes}
 % frame 9
 \begin{frame}
-\frametitle{Introducing abstract shapes}
-    Solution: further classify secondary structures within the lower energy range with different definition.
+\frametitle{Introducing abstract shape}
+    Solution: further classify secondary structures space within the energy range with different approaches.
     \begin{itemize} 
-    \item abstract shapes is one approach in this direction
+    \item abstract shape is one approach in this direction
     \item developed by Giegerich and Voss
     \item intial idea:
     \begin{enumerate}
       \item the user is usually only interested in structures that show fundamental differences
       \item small changes, such as additional base pairs or changing bulge loops are of minor significance
     \end{enumerate}
-    \item central to this approach: do not care about all details of the structures and abstract from lengths of structural elements or from some elements in total 
+    \item central to this approach: do not care about all details of the structures and abstract from some types secondary structure elements and length of them
     \item each shape has a representative structure called shrep (with minimum free energy within the shape class)
     \end{itemize}
 \end{frame}
@@ -150,7 +149,7 @@
 
 % frame 10
 \begin{frame}
-\frametitle{Abstract shape, energy range: 5 kcal/mol}  
+\frametitle{Abstract shapes, energy range: 5 kcal/mol}  
 \begin{figure}
   \includegraphics[scale=0.6]{images/shapes_example.jpg} 
 \end{figure}
@@ -165,23 +164,23 @@
 \frametitle{}
    \begin{block}{\small Drawback of abstract shape}
    \begin{itemize} 
-   \item The major drawback of abstract shapes analysis is the position
-   independence of the abstraction
+   \item abstract shape is position independent
    \end{itemize}
    \end{block}
-   \begin{block}{\small Drawback example of abstract shapes}
+   \begin{block}{\small Consequence of the drawback}
    \begin{figure}
-     \includegraphics[scale=0.55]{images/drawback_2.jpg} 
+     \includegraphics[scale=0.55]{images/drawback_1.jpg} 
    \end{figure}
-   \end{block}
+   \end{block}   
+   the drawback make the current implementation of shape abstraction unsuitable for the analysis of folding landscapes in a detailed fashion
 \end{frame}
 
 
 % frame 12
 \begin{frame}
 \frametitle{develop a new structure abstraction: helices indices}
-    The straightforward idea to overcome the position independence of the current available shape abstractions is to develop a new structure abstraction that includes the information of positions of helices
-    \begin{block}{Which element we should take to record the positions?}
+    The straightforward idea to overcome the drawback is to develop a new structure abstraction that includes the information of positions of helices
+    \begin{block}{Which secondary structure element should be recorded?}
     \begin{itemize} 
     \item hairpin loop
     \item multiloop
@@ -189,7 +188,7 @@
     \item any combinations of them
     \end{itemize}
     \end{block}
-    \begin{block}{Which position of elements we should take?}
+    \begin{block}{Which position of this element should be recorded?}
     \begin{itemize} 
     \item i
     \item j   
@@ -214,42 +213,43 @@
 
 % frame 14
 \begin{frame}[fragile]
-  Output from the first trial version of helices indices
-  \begin{block}{\tiny Helices shape, Energy range: 5 kcal/mol}
+  Output from the first version of helices indices
+  \begin{block}{\tiny Helices indices, energy range: 10 kcal/mol}
   %\begin{alltt}     %[fontsize=\small] 
   \tiny
   \begin{verbatim}
--10.7 ..((...((((((..(((((.((((...)))).)))))..))).)))..))..... [27] *
--9.0  .......................((((((((((((.....)))))..))))))).. [38] *
--6.7  ..((..((......))..))...((((((((((((.....)))))..))))))).. [11.5,38]
--6.6  ..((.(((.....)))..))...((((((((((((.....)))))..))))))).. [11,38]
--6.4  .(((((.........(((((.((((...)))).))))))))))..((....))... [27,49.5]
--6.2  ..((((((....))))..))...((((((((((((.....)))))..))))))).. [10.5,38]
--5.5  ..((....(((...))).))...((((((((((((.....)))))..))))))).. [13,38]
--5.0  ..((((((...))))...))...((((((((((((.....)))))..))))))).. [10,38]
--4.8  .(((((.........(((((.((((...)))).)))))))))).....((....)) [27,52.5]
--4.6  ..(((((....)))....))...((((((((((((.....)))))..))))))).. [9.5,38]
--4.2  .(((((.........(((((.((((...)))).))))))))))....((...)).. [27,51]
-       ...
--3.3  .((((((....))).(((((.((((...)))).)))))..)))............. [9.5,27,22.5]
--3.3  .(((((.........(((((.((((...)))).))))))))))....((....)). [27,51.5]
--3.3  ..((((.....)).....))...((((((((((((.....)))))..))))))).. [9,38]
--3.3  ..(((.((....)).(((((.((((...)))).)))))........)))....... [10.5,27,26]
--3.3  ..((.(((.....)))..))...((((((((((..((...))..)))))))))).. [11,39]
--3.2  ..((..((......))..))...((((((((.....(((....))))))))))).. [11.5,41.5]
--3.1  ..((.(((.....)))..))...((((((((.....(((....))))))))))).. [11,41.5]
--3.0  .(((((.........(((((.((((...)))).)))))))))).....((...)). [27,52]
--2.9  ..((((((....))))..))...((((((((((..((...))..)))))))))).. [10.5,39]
--2.9  ..(((...........((((.....)))).(((((.....))))).)))....... [23,38,26]
--2.9  ..(((.............((((....))))(((((.....))))).)))....... [24.5,38,26]
--2.8  .((.((((....))))((((.((((...)))).))))........))......... [10.5,27,24.5]
--2.8  ..((.(((....)))(((((.((((...)))).)))))...........))..... [10.5,27,27]
--2.8  ..((...((((((..(((.....(((......))))))..))).)))..))..... [29.5]
--2.7  .((.(((....))).(((((.((((...)))).))))).......))......... [9.5,27,24.5]
--2.7  ..((((((....))))..))...((((((((.....(((....))))))))))).. [10.5,41.5]
--2.7  ..((...........(((((.((((...)))).))))).((.....)).))..... [27,44,27]
--2.4  ..(((((....))).(((((.((((...)))).)))))...........))..... [9.5,27,27]
--2.3  ................((((..(((...)))((((.....))))........)))) [36.5,27,38] *
+     AACUAAAACAAUUUUUGAAGAACAGUUUCUGUACUUCAUUGGUAUGUAGAGACUUC
+-10.7..((...((((((..(((((.((((...)))).)))))..))).)))..))..... [27] *
+-9.0 .......................((((((((((((.....)))))..))))))).. [38] *
+-7.7 ...(((((....)))))......((((((((((((.....)))))..))))))).. [10.5,38]
+-7.4 ........(((...)))......((((((((((((.....)))))..))))))).. [13,38]
+-7.1 ..........(((..(((((.((((...)))).)))))..)))..((....))... [27,49.5]
+-6.7 .......((((((..(((((.((((...)))).)))))..))).))).((....)) [27,52.5]
+-6.7 ..((..((......))..))...((((((((((((.....)))))..))))))).. [11.5,38]
+-6.6 ..((.(((.....)))..))...((((((((((((.....)))))..))))))).. [11,38]
+-6.5 ...............(((((.((((...)))).)))))..(((........))).. [27,47.5]
+                    ...
+-2.4 .....((...(((..(((((.((((...)))).)))))..)))..((....)))). [27,49.5,30.5m]
+-2.4 ..(((((....))).(((((.((((...)))).)))))...........))..... [9.5,27,27m]
+-2.4 .......................((((((((((......)).....)))))))).. [36.5]
+-2.4 ...............(((((.((((...)))).)))))((..........)).... [27,45.5]
+-2.4 .......................((((((((...((....))....)))))))).. [38.5]
+-2.3 .((((.((....)).(((((.((((...)))).))))).))))..((....))... [10.5,27,22.5m,49.5]
+-2.3 ....((....(((..(((((.((((...)))).)))))..)))..((....)))). [27,49.5,30m]
+-2.3 ..((.(((.....)))((((.((((...)))).))))............))..... [11,27,27m]
+-2.3 ................((((..(((...)))((((.....))))........)))) [27,38,36.5m] *
+                    ...
+-0.7 ..((...........(((((.((((...)))).))))).((...))...))..... [27,43,27m]
+-0.7 ....(((....))).........(((((((..((...........))))))))).. [9.5,40]
+-0.7 .........((.(((....)))..(((((((((((.....)))))..)))))))). [17.5,38,32.5m]
+-0.7 .((((.((....)).(((((.((((...)))).))))).)))).....((....)) [10.5,27,22.5m,52.5]
+-0.7 ....((((...))))........(((((((..((...........))))))))).. [10,40]
+-0.7 ((.........))..(((((.((((...)))).)))))..(((........))).. [7,27,47.5]
+-0.7 ................((((.....)))).((.((..((......))..))))... [23,42.5]
+-0.7 ........((((......((((....)))).......))))....((....))... [24.5,49.5]
+-0.7 ..((....(((...))).............(((((.....)))))....))..... [13,38,27m]
+-0.7 ..(((.......(((....)))........(((((.....))))).)))....... [17.5,38,26m]
+-0.7 ....((.........((.....))(((((((((((.....)))))..)))))))). [20,38,30m]                    
   \end{verbatim} 
   %\end{alltt}
   \end{block}
@@ -267,15 +267,14 @@
 % frame 16
 \begin{frame}
 \frametitle{Possible problem}
-  \scriptsize
+  \small
   %Although the helices space grows considerably slower than structure space, but
   %it is still exponential
 
-  %Growth of structure, helix and shape space
-  Although both the abstract shapes and helices indices space grow exponentially with sequence length and suboptimal energy range, 
-  the helices indices space grows considerably faster.
+  %Growth of structure, helix and shape space 
+  The helices indices space grows a lot faster than the abstract shapes space
   \normalsize
-  \begin{block}{\tiny comparison of helices indices space with abstract shapes space}
+  \begin{block}{\tiny Comparison of helices indices space with abstract shapes space}
   %\begin{figure}
     \centering
 	\begin{tikzpicture}[scale=0.7]
@@ -283,31 +282,30 @@
 		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
 		%\end{semilogyaxis}
 		\begin{semilogyaxis}[legend style={font=\small},xlabel={Sequence
-         length},ylabel={Nr. of
-         Structures/Helices/Shapes},width=\textwidth,legend style={nodes=right},
+         length},ylabel={Nr. of helices indices/abstract shapes},width=\textwidth,legend style={nodes=right},
          legend pos= north west]
      
         
          %\addplot+[only marks,mark=+]
-         %table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
+         %table[x=X,y=Y]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
          %\addlegendentry{Structures}         
          %\addplot table[x=X,y={create col/linear
-         %regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
+         %regression={y=Y}}]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAsubopt.txt};
          %\addlegendentry{$0.33 \cdot x -3.24$}
          
          
          \addplot+[only marks,mark=-]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+         table[x=X,y=Y]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
          \addlegendentry{Helices}         
          \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+         regression={y=Y}}]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
          \addlegendentry{$0.18 \cdot x -1.42$} 
  
          \addplot+[only marks,mark=x]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
+         table[x=X,y=Y]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};
          \addlegendentry{Shapes}                   
          \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};                 
+         regression={y=Y}}]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAshapes_5.txt};                 
          \addlegendentry{
 $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 \pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
@@ -326,52 +324,52 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 \begin{frame}
 \frametitle{Solution of possible problem}
   \small
-  One of the solution: we limit the helices space by setting an energy range on
+  One of the solution: we can limit the helices space by setting an energy range on
   it
   \normalsize
-  \begin{block}{\tiny comparison of helices indices space setting different energy ranges}     
+  \begin{block}{\tiny Comparison of helices indices space setting different energy ranges}     
     \centering
 	\begin{tikzpicture}[scale=0.7]
 		%\begin{semilogyaxis}[xlabel=Index,ylabel=Value]
 		%\addplot gnuplot[color=blue,mark=*]{1.2196*(x**(-1.5))*(2.6180**x)}; 
 		%\end{semilogyaxis}
 		\begin{semilogyaxis}[legend style={font=\tiny},xlabel={Sequence
-         length},ylabel={Nr. of Helices},width=\textwidth,legend
+         length},ylabel={Nr. of helices indices},width=\textwidth,legend
          style={nodes=right}, legend pos= north west]
 
          \addplot+[only marks,mark=-]
-         table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+         table[x=X,y=Y]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
          \addlegendentry{energy range unlimited}
          \addplot table[x=X,y={create col/linear
-         regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
+         regression={y=Y}}]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix.txt};
          \addlegendentry{$0.18 \cdot x -1.42$} 
 
           \addplot+[only marks,mark=x]
-          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_20kcal.txt};
+          table[x=X,y=Y]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_20kcal.txt};
           \addlegendentry{energy range 20kcal/mol}
           \addplot table[x=X,y={create col/linear
-          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_20kcal.txt}; 
+          regression={y=Y}}]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_20kcal.txt}; 
           \addlegendentry{$0.12 \cdot x +0.44$} 
        
           \addplot+[only marks,mark=x]
-          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_15kcal.txt};
+          table[x=X,y=Y]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_15kcal.txt};
           \addlegendentry{energy range 15kcal/mol}
           \addplot table[x=X,y={create col/linear
-          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_15kcal.txt};
+          regression={y=Y}}]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_15kcal.txt};
           \addlegendentry{$0.0904 \cdot x +1.23$} 
 
           \addplot+[only marks,mark=x]
-          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_10kcal.txt};
+          table[x=X,y=Y]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_10kcal.txt};
           \addlegendentry{energy range 10kcal/mol}
           \addplot table[x=X,y={create col/linear
-          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_10kcal.txt};
+          regression={y=Y}}]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_10kcal.txt};
           \addlegendentry{$0.0602 \cdot x +1.43$}      
                                         
           \addplot+[only marks,mark=x]
-          table[x=X,y=Y]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
+          table[x=X,y=Y]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
           \addlegendentry{energy range 5kcal/mol}
           \addplot table[x=X,y={create col/linear
-          regression={y=Y}}]{/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
+          regression={y=Y}}]{/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_RNAhelix_5_5kcal.txt};
           \addlegendentry{$0.0366 \cdot x +0.7$} 
      
                             
@@ -395,9 +393,9 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 \frametitle{Outlook}
     \begin{itemize} 
     \item develop a new structure abstraction (helices indices)
-    \item implement a software with the ADP framework in C++ programming language based on the idea
-    \item evaluate the algorithm comparing with other programs
-    \item design a RNA class predictors
+    \item implement a software based on the idea
+    \item the software will be evaluated by benchmark program
+    \item design a RNA class predictor
     \end{itemize}
 \end{frame}
 

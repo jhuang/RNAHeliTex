@@ -65,3 +65,6 @@ if we fi [for example there are algorithm 1, 2,3...]
     sequence independent, that is, Neighbors do not influence the energy.
     
     
+    - In this algorithm, we have to assume one condition, namely we get away the knots from the calculation.
+  The reason why we can get away the knots from the calculation is the calculation result of secondary structure prediction are used to infer
+  3-dimensional structures and knots can be inferred at this stage as well.

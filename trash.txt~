@@ -496,3 +496,10 @@ $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
 
 %, as possible braching points, are structurally important    
  %are the main structural contributors 
+
+
+\subject{Talk based on Giegerich, Voss, Rehmsmeier (2004) ''Abstract
+Shapes of RNA'' Nucleic Acids Research Vol. 32 No. 16}
+
+
+    \item assumption: There are no knots (base pairs never cross).

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.3.3)  11 MAR 2011 16:03
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.2.21)  12 MAR 2011 18:05
 entering extended mode
  %&-line parsing enabled.
 **HelicesRNAs.tex
@@ -78,18 +78,18 @@ Package: beamerbasedecode 2007/01/28 (rcs-revision 1.20)
 (/usr/share/texmf/tex/latex/beamer/beamerbaseoptions.sty
 Package: beamerbaseoptions 2007/01/28 (rcs-revision 1.8)
 
-(/home/jhuang/texmf/tex/latex/graphics/keyval.sty
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 ))
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgfcore.sty
-(/home/jhuang/texmf/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/home/jhuang/texmf/tex/latex/graphics/graphics.sty
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/home/jhuang/texmf/tex/latex/graphics/trig.sty
+(/usr/share/texmf/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
 (/usr/share/texmf/tex/latex/latexconfig/graphics.cfg
@@ -648,7 +648,7 @@ Package: multimedia 2004/04/10 ver 0.01
 (/usr/share/texmf/tex/latex/base/alltt.sty
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
-(/usr/share/texmf/tex/latex/multirow/multirow.sty
+(/home/jiabin/texmf/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen183
 )
 (/usr/share/texmf/tex/latex/base/textcomp.sty
@@ -738,8 +738,8 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@top=\skip59
 \subfig@bottom=\skip60
 )
-(/home/jhuang/texmf/tex/latex/pgfplots/pgfplots.sty
-(/home/jhuang/texmf/tex/generic/pgfplots/pgfplots.revision.tex)
+(/home/jiabin/texmf/tex/latex/pgfplots/pgfplots.sty
+(/home/jiabin/texmf/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2010/07/14 Version 1.4.1 (git show 1.4.1-1-g64c9e95 )
 
 (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
@@ -801,8 +801,8 @@ File: pgfmodulematrix.code.tex 2008/01/15  (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
 File: tikzlibrarytopaths.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
-))) (/home/jhuang/texmf/tex/generic/pgfplots/pgfplots.code.tex
-(/home/jhuang/texmf/tex/generic/pgfplots/pgfplotscore.code.tex
+))) (/home/jiabin/texmf/tex/generic/pgfplots/pgfplots.code.tex
+(/home/jiabin/texmf/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks39
 \t@pgfplots@tokb=\toks40
 \t@pgfplots@tokc=\toks41
@@ -811,59 +811,59 @@ File: tikzlibrarytopaths.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
 \c@pgfplots@scanlineindex=\count166
 \r@pgfplots@reada=\read1
 )
-(/home/jhuang/texmf/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex)
-(/home/jhuang/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_load
+(/home/jiabin/texmf/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex)
+(/home/jiabin/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_load
 er.code.tex
 Package pgfplots: loading complementary code for your PGF version...
 
-(/home/jhuang/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_misc
+(/home/jiabin/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_misc
 .code.tex
 \w@pgf@writea=\write5
 \r@pgf@reada=\read2
 )
-(/home/jhuang/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfk
+(/home/jiabin/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfk
 eys.code.tex
 \pgfkeys@pathtoks=\toks42
 \pgfkeys@temptoks=\toks43
 
-(/home/jhuang/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfk
+(/home/jiabin/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfk
 eysfiltered.code.tex
 \pgfkeys@tmptoks=\toks44
 ))
-(/home/jhuang/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfm
+(/home/jiabin/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfm
 athfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count167
 )
-(/home/jhuang/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfl
+(/home/jiabin/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfl
 ibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.00 (rcs-revision 1.15)
 \pgf@plot@mark@count=\count168
 \pgfplotmarksize=\dimen198
 )
-(/home/jhuang/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfl
+(/home/jiabin/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfl
 ibraryfpu.code.tex))
-(/home/jhuang/texmf/tex/generic/pgfplots/util/pgfplotsutil.code.tex
-(/home/jhuang/texmf/tex/generic/pgfplots/liststructure/pgfplotsliststructure.co
+(/home/jiabin/texmf/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/home/jiabin/texmf/tex/generic/pgfplots/liststructure/pgfplotsliststructure.co
 de.tex)
-(/home/jhuang/texmf/tex/generic/pgfplots/liststructure/pgfplotsliststructureext
+(/home/jiabin/texmf/tex/generic/pgfplots/liststructure/pgfplotsliststructureext
 .code.tex)
-(/home/jhuang/texmf/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+(/home/jiabin/texmf/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
 \c@pgfplotsarray@tmp=\count169
 )
-(/home/jhuang/texmf/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+(/home/jiabin/texmf/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
 \c@pgfplotstable@counta=\count170
 \t@pgfplotstable@a=\toks45
 \pgfplotstable@outfile=\write6
-) (/home/jhuang/texmf/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex
-) (/home/jhuang/texmf/tex/generic/pgfplots/util/pgfplotsbinary.code.tex)
-(/home/jhuang/texmf/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.co
+) (/home/jiabin/texmf/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex
+) (/home/jiabin/texmf/tex/generic/pgfplots/util/pgfplotsbinary.code.tex)
+(/home/jiabin/texmf/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.co
 de.tex
-(/home/jhuang/texmf/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgf
+(/home/jiabin/texmf/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgf
 sys-pdftex.def)))
-(/home/jhuang/texmf/tex/generic/pgfplots/util/pgfplotscolormap.code.tex)
-(/home/jhuang/texmf/tex/generic/pgfplots/pgfplotsstackedplots.code.tex)
-(/home/jhuang/texmf/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex)
-(/home/jhuang/texmf/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/home/jiabin/texmf/tex/generic/pgfplots/util/pgfplotscolormap.code.tex)
+(/home/jiabin/texmf/tex/generic/pgfplots/pgfplotsstackedplots.code.tex)
+(/home/jiabin/texmf/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex)
+(/home/jiabin/texmf/tex/generic/pgfplots/pgfplotsticks.code.tex)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
 ations.code.tex
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
@@ -899,11 +899,11 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2007/03/09 v2.00 (rcs-revision 1.5)
 )))
-(/home/jhuang/texmf/tex/latex/pgfplots/pgfplotstable.sty
+(/home/jiabin/texmf/tex/latex/pgfplots/pgfplotstable.sty
 Package: pgfplotstable 2010/07/14 Part of pgfplots
 
-(/home/jhuang/texmf/tex/generic/pgfplots/numtable/pgfplotstable.code.tex
-(/home/jhuang/texmf/tex/generic/pgfplots/numtable/pgfplotstable.coltype.code.te
+(/home/jiabin/texmf/tex/generic/pgfplots/numtable/pgfplotstable.code.tex
+(/home/jiabin/texmf/tex/generic/pgfplots/numtable/pgfplotstable.coltype.code.te
 x)) (/usr/share/texmf/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen212
@@ -1068,22 +1068,17 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 File: images/RNA_components.jpg Graphic file (type jpg)
 
 <use images/RNA_components.jpg>
-Overfull \hbox (4.71902pt too wide) in paragraph at lines 67--67
- [] 
- []
-
-
-Overfull \vbox (23.05533pt too high) detected at line 67
+Overfull \vbox (3.01517pt too high) detected at line 67
  []
 
 [3
 
  <./images/RNA_components.jpg>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+LaTeX Font Info:    Try loading font information for U+msa on input line 86.
  (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+LaTeX Font Info:    Try loading font information for U+msb on input line 86.
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [4
@@ -1099,7 +1094,7 @@ File: images/mfe_example.pdf Graphic file (type pdf)
 File: images/energy_landscape_simple.jpg Graphic file (type jpg)
 
 <use images/energy_landscape_simple.jpg>
-Overfull \hbox (17.11638pt too wide) in paragraph at lines 105--105
+Overfull \hbox (17.11638pt too wide) in paragraph at lines 104--104
  [] 
  []
 
@@ -1112,7 +1107,7 @@ Overfull \hbox (17.11638pt too wide) in paragraph at lines 105--105
 File: images/energy_landscape_area.jpg Graphic file (type jpg)
 
 <use images/energy_landscape_area.jpg>
-Overfull \hbox (17.11638pt too wide) in paragraph at lines 128--128
+Overfull \hbox (17.11638pt too wide) in paragraph at lines 127--127
  [] 
  []
 
@@ -1125,19 +1120,19 @@ Overfull \hbox (17.11638pt too wide) in paragraph at lines 128--128
 File: images/shapes_example.jpg Graphic file (type jpg)
 
 <use images/shapes_example.jpg>
-Overfull \hbox (22.89624pt too wide) in paragraph at lines 157--157
+Overfull \hbox (22.89624pt too wide) in paragraph at lines 156--156
  [] 
  []
 
 [10
 
  <./images/shapes_example.jpg (PNG copy)>]
-<images/drawback_2.jpg, id=361, 550.30594pt x 74.52844pt>
-File: images/drawback_2.jpg Graphic file (type jpg)
+<images/drawback_1.jpg, id=361, 536.75531pt x 68.50594pt>
+File: images/drawback_1.jpg Graphic file (type jpg)
 
-<use images/drawback_2.jpg> [11
+<use images/drawback_1.jpg> [11
 
- <./images/drawback_2.jpg>] [12
+ <./images/drawback_1.jpg>] [12
 
 ]
 <images/helices_position.jpg, id=421, 446.41782pt x 317.68687pt>
@@ -1163,36 +1158,36 @@ Overfull \hbox (9.88951pt too wide) in paragraph at lines 265--265
 [15
 
  <./images/energy_barrier.jpg>]
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAshapes_5.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAshapes_5.txt}
  [16
 
 ]
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix_5_20kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix_5_20kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix_5_15kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix_5_15kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix_5_10kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix_5_10kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix_5_5kcal.txt}
-PGFPlots: reading {/home/jhuang/workspace/RNAHeliCes/scripts/estimate_exponent_
+PGFPlots: reading {/home/jiabin/workspace/RNAHeliCes/scripts/estimate_exponent_
 RNAhelix_5_5kcal.txt}
  [17
 
@@ -1218,8 +1213,8 @@ LaTeX Font Warning: Size substitutions with differences
  ) 
 Here is how much of TeX's memory you used:
  21858 strings out of 493848
- 469740 string characters out of 3155815
- 1132383 words of memory out of 3500000
+ 469728 string characters out of 3155814
+ 1132380 words of memory out of 3500000
  24527 multiletter control sequences out of 15000+200000
  13063 words of font info for 49 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
@@ -1234,7 +1229,7 @@ amsfonts/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssi
 texmf/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf/fonts/type1/p
 ublic/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cm
 sy9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on HelicesRNAs.pdf (19 pages, 510102 bytes).
+Output written on HelicesRNAs.pdf (19 pages, 532149 bytes).
 PDF statistics:
  685 PDF objects out of 1000 (max. 8388607)
  43 named destinations out of 1000 (max. 500000)
