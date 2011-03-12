@@ -138,7 +138,7 @@ the concept of "abstract shapes" in the 2nd part.
 - in last slide, I will give an outlook of the project.
 - at first, we will develop a new structure abstraction, namely the helices indices 
 - after that, the idea will be implemented based on the idea.
-- afterwards, the software will be evaluated by benchmark program
+- of course, the software will be evaluated by benchmark program
 - lastly, we will design a RNA class predictor
 
 19. 
