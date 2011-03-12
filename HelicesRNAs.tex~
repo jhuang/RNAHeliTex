@@ -110,7 +110,7 @@ Institute of Biology III}
   %\begin{block}
   \begin{itemize} 
     \item the native structure is not always the one with the lowest predicted free energy.
-    \item but it is not far away from the mfe and it is normally a local minimum
+    \item but it must not be far away from the mfe point and it is normally a local minimum
     \item how to find the native structure: enumerate all suboptimal structures within a given energy range
   \end{itemize}
   %\end{block}   
@@ -161,7 +161,7 @@ but the number of suboptimal structures grows exponentially with the energy rang
 % frame 11
 \frametitle{Drawback of abstract shape}
 \begin{frame}
-\frametitle{}
+\frametitle{Drawback of abstract shape}
    \begin{block}{\small Drawback of abstract shape}
    \begin{itemize} 
    \item abstract shape is position independent
@@ -169,10 +169,14 @@ but the number of suboptimal structures grows exponentially with the energy rang
    \end{block}
    \begin{block}{\small Consequence of the drawback}
    \begin{figure}
+     \item make the current implementation of shape abstraction unsuitable for the analysis of folding landscapes in a detailed fashion
+   \end{figure}
+   \end{block}  
+   \begin{block}{\small Example}
+   \begin{figure}
      \includegraphics[scale=0.55]{images/drawback_1.jpg} 
    \end{figure}
-   \end{block}   
-   the drawback make the current implementation of shape abstraction unsuitable for the analysis of folding landscapes in a detailed fashion
+   \end{block}      
 \end{frame}
 
 

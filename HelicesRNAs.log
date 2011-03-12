@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.2.21)  12 MAR 2011 18:05
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/openSUSE) (format=pdflatex 2011.2.21)  12 MAR 2011 20:47
 entering extended mode
  %&-line parsing enabled.
 **HelicesRNAs.tex
@@ -1151,7 +1151,7 @@ File: images/helices_position.jpg Graphic file (type jpg)
 File: images/energy_barrier.jpg Graphic file (type jpg)
 
 <use images/energy_barrier.jpg>
-Overfull \hbox (9.88951pt too wide) in paragraph at lines 265--265
+Overfull \hbox (9.88951pt too wide) in paragraph at lines 269--269
  [] 
  []
 
@@ -1214,7 +1214,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  21858 strings out of 493848
  469728 string characters out of 3155814
- 1132380 words of memory out of 3500000
+ 1132322 words of memory out of 3500000
  24527 multiletter control sequences out of 15000+200000
  13063 words of font info for 49 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
@@ -1229,7 +1229,7 @@ amsfonts/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmssi
 texmf/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf/fonts/type1/p
 ublic/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cm
 sy9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on HelicesRNAs.pdf (19 pages, 532149 bytes).
+Output written on HelicesRNAs.pdf (19 pages, 532359 bytes).
 PDF statistics:
  685 PDF objects out of 1000 (max. 8388607)
  43 named destinations out of 1000 (max. 500000)

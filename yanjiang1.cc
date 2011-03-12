@@ -68,14 +68,12 @@ the concept of "abstract shapes" in the 2nd part.
 10. 
 - this figure shows an output example from abstract shapes by setting an envergy range of 5 kcal/mol above the mfe.  
 - the picture above is 2 dimension representation, the picture below is the textual output.
-- we notice the 2 dimension representation and abstract shapes are very similar, if we image the first opening bracket and last closing bracket as a stem of tree. and all inner brackets pairs are branches of the trees.
-- the abstract shapes are identical as the representation above.
-- in the middle is the secondary structure of shrep within the shape class
-  on the right side is the free energy of shrep
+- from the intuitive perspective, every nested square brackets in abstract shapes corresponds to a branch in 2 dimensions representation, for example in the record 3, it has 3 branches in picture above, it has also 3 nested square brackets in abstract shapes, it is one-to-one correspondence 
+- in the middle of the record: shrep structure
+- on right side: free energy of shrep
 
 11. 
 - the abstract shape works pretty well, but one drawback is still there. namely 照读. 
-- in other words, it doesn't contain any information about the position in abstract shapes. 
 - What is consequence of the drawback?
 - To explain the drawback, I prepared an example, as the figure shows, although the abstract shape above and below are identical, but position of the hairpin loop are totally different. 
 - the drawback make 照读...
@@ -103,46 +101,44 @@ the concept of "abstract shapes" in the 2nd part.
 
 14. 
 - the slide showed 照读
-- in this example, we record multiloop and hairpin loop and use the central position
-- the most interesting information from it is 3 records that are marked with asterisk
-- on the left side, it is the free energy of shrep, namely this record, this record and this record
-  in the middle, it is the secondary structure of the shrep
-  on the right side, it is helices indices
-- if we compare the 3 records, we observe the helices indices of this record is a combination of the helices indices of the first 2 records.
+- in this example, we record multiloop and hairpin loop and use the central position, among them, the multiloop is marked with the letter 'm'. for example, in the record, 30m means the position comes from a multiloop.
+- the most interesting information from the list hide in 3 records, namely this one, this one and this one
+- if we compare the 3 records, we can find the helices indices of this record is a combination of the first 2 records.
 - what does it mean? ths answer is in the next slide.
 
 15. 
-- we can observe the first record as the global minimum structure and the second record as a suboptimal structure. They have almost the same free energy.
-- furthermoare, we can observe the combination record as a saddle point in energy landscape.
-- If we will move from this point to this point, we have to pass the saddle point. Because the free energy of all the helices indices are known, therefore, we can calculate barrier energy between saddle point and mfe point easily. 
-- in our example, （返回去）, the minimum is -10.7, saddle point is -2.3, and the barrier energy is therefore 8.4 kcal/mol
+- if we draw the 3 records in energy landscape, it must be like this.
+- the first record is global minimum structure and the second record is a local minimum. They have almost the same free energy.
+- furthermoare, the combination records is a saddle point
+- so if we move from this point to this point, we have to pass the saddle point. Because the free energy of all 3 helices indices are known, therefore, we can calculate the difference easily. the difference is barrier energy. 
+- in our example, （返回去）, the mfe-point has energy 10.7, this point has energy 2.3, and the barrier energy is about 8.4
 
 
 
 
 16. 
-- from this slide, I will point out one serious problem we might encountered, namely the runtime problem.
+- from this slide, I will talk about the first problem we encountered, this is a runtime problem.
 - the figure shows 照读
-  x axis is sequence length, y axis is number of helices indices or abstract shapes
-  the linie means the helices indices space, the linie means the abstract shapes space.
-- we notice, 照读 it will cause serious calculation runtime problem. For example, it needs about 30 hours to calculate the helices indices for a 72 nt long sequence on our super computer.
+  in the figure, x axis is sequence length, y axis is number of helices indices or abstract shapes
+  the line means the helices indices space, the line means the abstract shapes space.
+- we notice, 照读, therefore it caused a runtime problem. In practice, for a sequence with 72 nucleotides, we need about 32 hours to calculate the helices indices on our super computer, it is not satisfactory.
 - how can we solve this problem?
 
 17. 
-- one solution is that we can set an energy range to limit the helices indices space.
-- the figure shows the evaluation result by setting different energy ranges.
-  x axis is sequence length, y axis is number of helices indices
-  the linie means the helices indices without energy limitation
-              ...                     with a energy limit of 20 kcal/mol
-              ..                                             15, 10, 5
-- although all helices indices space grow exponentially with sequence length, but the degree of steepness are different, the stricter the limitation, the flater the linie and the better the runtime will be.
-- so if we set a strict limitation on the calculation, we will get a better runtime and solve the problem.
+- one solution is that 照读,
+- the figure shows 照读
+- there are altogether 5 lines in the figure
+  the first line means the helices indices without energy limitation
+      second is with a energy limit of 20 kcal/mol, this is with 15, this is with 10, this is with 5.
+- although all helices indices space grow exponentially with sequence length, but the degree of steepness are different, 
+- the tendency is the lower the energy range, the flater the line and the better the runtime will be.
+- so if we set a very low enery range on the calculation, we will get a better runtime and solve the problem.
 
 18. 
 - in last slide, I will give an outlook of the project.
 - at first, we will develop a new structure abstraction, namely the helices indices 
 - after that, the idea will be implemented based on the idea.
-- afterwards, the software will be evaluated by benchmark program
+- of course, the software will be evaluated by benchmark program
 - lastly, we will design a RNA class predictor
 
 19. 
