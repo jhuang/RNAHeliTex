@@ -28,8 +28,8 @@ the concept of "abstract shapes" in the 2nd part.
 - the basic idea is sequence can be folded into many different secondary structures.
                     furthermore, we can calculate for every secondary structure a unambiguous free energy value by adding the free energies of all elements of the secondary structure.
                     after that, the algorithm choose the structure with the minimum free energy.
-- The runtime of the algorithms is O(n3) where n is the length of sequence,
-- From this argorithm, we can get only one solution.
+- (advantage) The runtime of the algorithms is O(n3) where n is the length of sequence,
+- (disadvantage) From this argorithm, we can get only one solution.
 
 5. 
 - To better understand it, I prepared a small example,
@@ -42,7 +42,7 @@ the concept of "abstract shapes" in the 2nd part.
 - if we calculate free energy for every secondary structure and draw it on a graph, we get a landscape.
 - as the figure showed, the x-axis means conformations, 
                         the y-axis means free energy, 
-  if a RNA molecule don't have conformational switch, typically, if we see it from the landscape, the energy difference between minimum free energy and energy of the first sub-optimal confirmation is enough big.
+  normally, if a RNA molecule don't have conformational switch, the energy difference between minimum free energy and energy of the first sub-optimal confirmation is enough big, so that the mfe-point can not go up and reach the point.
 - In Zuker algorithm, we calculate only this point.
 
 7. 
@@ -50,7 +50,7 @@ the concept of "abstract shapes" in the 2nd part.
 - what can we do to find the native structure? One of solutions is that we define a range and enumerate all suboptimal 照 读...
 
 8. 
-- the figure shows the idea I just explained last slide, firstly, we define a linie in the energy landscape and calculate all suboptimal structure under the linie.
+- the figure shows the idea I just explained last slide, firstly, we define a line in the energy landscape and calculate all suboptimal structure under the line.
 - but it caused another problem, namely the number of suboptimal structures grows exponentially with the size of the energy range.
 - How can we solve the problem?
 
@@ -58,19 +58,17 @@ the concept of "abstract shapes" in the 2nd part.
 
 
 9. 
-- 照读: One of the solution is further classify ...  
-       abstract shape is one solution in the direction. 
-       it was developed by ...         initial ideas ...  
-- central to this approach is ...
-  for example in abstract shape type 5, all loops excepts for internal loop and multiloop are abstracted.
-- each shape has a representative structure called shrep. It is the structrue with the minimum free energy within the shape class.    
+- one is the solution is we can further classify secondary structures space
+- abstract shapes is one approach in this direction
+- the initial idea is the user is only interesting in structures that show fundamental differences
+- small change like bulge loop and internal loops are not every important.
+- the idea is we can abstract from such unimportant elements, for example, bulge loop and internal loops
+- last point is every shape has a representative, it is also called as shrep, it is minimum free energy within shape class.
 
 10. 
 - this figure shows an output example from abstract shapes by setting an envergy range of 5 kcal/mol above the mfe.  
-- the picture above is 2 dimension representation, the picture below is the textual output.
-- from the intuitive perspective, every nested square brackets in abstract shapes corresponds to a branch in 2 dimensions representation, for example in the record 3, it has 3 branches in picture above, it has also 3 nested square brackets in abstract shapes, it is one-to-one correspondence 
-- in the middle of the record: shrep structure
-- on right side: free energy of shrep
+- the picture above is 2 dimension representation, the picture below is the text form.
+- from the intuitive perspective, the abstract shape is similar than the 2 dimension version. for example in record 3, as seen from the 2 dimension version, it is a cloverleaf, correspondingly, the abstract shape is a pair brackets that nest 3 pairs inner brackets. 
 
 11. 
 - the abstract shape works pretty well, but one drawback is still there. namely 照读. 
@@ -83,7 +81,7 @@ the concept of "abstract shapes" in the 2nd part.
 
 
 12. 
-- for the reason we will develop a new structure abstraction namely helices indices. It includes the information of positions of helices.
+- this is the reason why we will develop a new structure abstraction namely helices indices. It includes the information of positions of helices.
 - to develop it, 2 things have to been decided,
 - the first thing is Which secondary structure element should be recorded?
 - we have 4 candidate ...
@@ -101,8 +99,8 @@ the concept of "abstract shapes" in the 2nd part.
 
 14. 
 - the slide showed 照读
-- in this example, we record multiloop and hairpin loop and use the central position, among them, the multiloop is marked with the letter 'm'. for example, in the record, 30m means the position comes from a multiloop.
-- the most interesting information from the list hide in 3 records, namely this one, this one and this one
+- in this example, we record multiloop and hairpin loop and use the central position. To differ from multiloop and hairpin loop, we attach a letter 'm' to the helices indices of multiloop. for example, in the record, 30m means the position comes from a multiloop.
+- the most interesting information behind the list are 3 records, namely this one, this one and this one
 - if we compare the 3 records, we can find the helices indices of this record is a combination of the first 2 records.
 - what does it mean? ths answer is in the next slide.
 
